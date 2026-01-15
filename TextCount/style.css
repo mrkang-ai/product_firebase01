@@ -1,0 +1,139 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Header & Footer */
+header, footer {
+    background-color: #004a7c;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 a {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+/* Main Content Container */
+main .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Tool Header */
+.tool-header {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.tool-header h2 {
+    font-size: 2.2rem;
+    color: #004a7c;
+    margin: 0;
+}
+
+/* Ad Slot Placeholder */
+.ad-slot {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: #f0f0f0;
+    border: 1px dashed #ccc;
+    color: #999;
+}
+
+/* Text Counter Section */
+.text-counter {
+    margin-bottom: 2rem;
+}
+
+#text-input {
+    width: 100%;
+    height: 250px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.result-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #f1f8ff;
+    border-radius: 5px;
+}
+
+.result-item {
+    text-align: center;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.result-item .label {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.result-item .value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #005A9C;
+}
+
+#reset-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#reset-btn:hover {
+    background-color: #c82333;
+}
+
+/* Info Section */
+.info {
+    padding: 1.5rem;
+    background: #e9ecef;
+    border-radius: 5px;
+}
+.info h3 {
+    margin-top: 0;
+    border: none;
+    padding: 0;
+}

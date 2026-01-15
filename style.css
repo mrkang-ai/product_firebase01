@@ -1,51 +1,81 @@
+/* General Body Styles */
 body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
-}
-
-.lotto-container {
-    text-align: center;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.lotto-numbers {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1.5rem 0;
-}
-
-.lotto-number {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #f0f0f0;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
     color: #333;
 }
 
-#generate-btn {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Header */
+header {
+    background-color: #005A9C;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
 }
 
-#generate-btn:hover {
-    background-color: #0056b3;
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Main Content */
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Navigation to Tools */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+nav a {
+    display: block;
+    background-color: #fff;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+nav a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+nav h2 {
+    margin-top: 0;
+    color: #005A9C;
+}
+
+/* Intro Section */
+.intro {
+    margin-top: 3rem;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #333;
+    color: #fff;
 }
