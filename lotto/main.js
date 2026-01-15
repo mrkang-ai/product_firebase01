@@ -3,8 +3,16 @@ const generatedNumbersContainer = document.getElementById('generated-numbers-con
 
 // '번호 생성하기' 버튼 클릭 이벤트 리스너
 generateBtn.addEventListener('click', () => {
+    // 버튼 비활성화 (중복 클릭 방지)
+    generateBtn.disabled = true;
+
     const numbers = generateLottoNumbers();
     appendNewNumbers(numbers);
+
+    // 잠시 후 버튼 다시 활성화
+    setTimeout(() => {
+        generateBtn.disabled = false;
+    }, 300);
 });
 
 /**
@@ -20,6 +28,19 @@ function generateLottoNumbers() {
 }
 
 /**
+ * 번호 값에 따라 적절한 공 색상 클래스를 반환합니다.
+ * @param {number} number - 로또 번호
+ * @returns {string} - CSS 색상 클래스
+ */
+function getBallColorClass(number) {
+    if (number <= 10) return 'ball-yellow';
+    if (number <= 20) return 'ball-blue';
+    if (number <= 30) return 'ball-red';
+    if (number <= 40) return 'ball-gray';
+    return 'ball-green';
+}
+
+/**
  * 생성된 번호 세트를 화면에 새로운 줄로 추가합니다.
  * @param {number[]} numbers - 생성된 로또 번호 배열
  */
@@ -27,12 +48,24 @@ function appendNewNumbers(numbers) {
     const setDiv = document.createElement('div');
     setDiv.className = 'generated-set';
 
+    const numbersDiv = document.createElement('div');
+    numbersDiv.className = 'numbers';
+
     numbers.forEach(number => {
         const numberSpan = document.createElement('span');
-        numberSpan.className = 'generated-number';
+        numberSpan.className = `lotto-ball ${getBallColorClass(number)}`;
         numberSpan.textContent = number;
-        setDiv.appendChild(numberSpan);
+        numbersDiv.appendChild(numberSpan);
     });
 
-    generatedNumbersContainer.appendChild(setDiv);
+    const timestampSpan = document.createElement('span');
+    timestampSpan.className = 'timestamp';
+    const now = new Date();
+    timestampSpan.textContent = now.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+    setDiv.appendChild(numbersDiv);
+    setDiv.appendChild(timestampSpan);
+
+    // 목록의 맨 위에 추가하여 최신 번호가 가장 잘 보이도록 함
+    generatedNumbersContainer.prepend(setDiv);
 }
