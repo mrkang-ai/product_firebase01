@@ -12,7 +12,7 @@ recommendBtn.addEventListener('click', () => {
 
     let imageChangeInterval = setInterval(() => {
         const randomMenuItem = menuData[Math.floor(Math.random() * menuData.length)];
-        const imageUrl = `https://placehold.co/300x200.jpg?text=${encodeURIComponent(randomMenuItem.name)}`;
+        const imageUrl = `https://loremflickr.com/300/200/${encodeURIComponent(randomMenuItem.name)}/all`;
         imageSpinner.style.backgroundImage = `url('${imageUrl}')`;
     }, 100);
 
@@ -21,7 +21,7 @@ recommendBtn.addEventListener('click', () => {
         clearInterval(imageChangeInterval);
 
         const randomMenuItem = menuData[Math.floor(Math.random() * menuData.length)];
-        const imageUrl = `https://placehold.co/300x200.jpg?text=${encodeURIComponent(randomMenuItem.name)}`;
+        const imageUrl = `https://loremflickr.com/300/200/${encodeURIComponent(randomMenuItem.name)}/all`;
 
         resultImage.src = imageUrl;
         resultName.textContent = randomMenuItem.name;
