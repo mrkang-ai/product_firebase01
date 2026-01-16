@@ -43,6 +43,9 @@ choiceBtns.forEach(btn => {
             const computerChoice = choices[Math.floor(Math.random() * choices.length)];
             computerChoiceElem.textContent = choiceMap[computerChoice];
 
+            console.log('User choice:', userChoice);
+            console.log('Computer choice:', computerChoice);
+
             const result = getResult(userChoice, computerChoice);
             resultTextElem.textContent = result;
 
