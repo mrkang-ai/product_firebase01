@@ -4,6 +4,7 @@ const imageSpinner = document.getElementById('image-spinner');
 const resultDiv = document.getElementById('result');
 const resultImage = document.getElementById('result-image');
 const resultName = document.getElementById('result-name');
+const resultDescription = document.getElementById('result-description');
 
 recommendBtn.addEventListener('click', () => {
     // Hide result and show loading animation
@@ -25,6 +26,7 @@ recommendBtn.addEventListener('click', () => {
 
         resultImage.src = imageUrl;
         resultName.textContent = randomMenuItem.name;
+        resultDescription.textContent = randomMenuItem.description;
 
         loadingAnimation.classList.add('hidden');
         resultDiv.classList.remove('hidden');
