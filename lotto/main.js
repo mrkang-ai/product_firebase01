@@ -69,3 +69,14 @@ function appendNewNumbers(numbers) {
     // 목록의 맨 위에 추가하여 최신 번호가 가장 잘 보이도록 함
     generatedNumbersContainer.prepend(setDiv);
 }
+
+const copyLinkBtn = document.getElementById('copy-link-btn');
+
+copyLinkBtn.addEventListener('click', () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        alert('페이지 주소가 복사되었습니다!');
+    }, () => {
+        alert('주소 복사에 실패했습니다.');
+    });
+});

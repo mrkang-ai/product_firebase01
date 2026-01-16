@@ -20,13 +20,13 @@ header, footer {
     background: linear-gradient(135deg, #0d47a1, #1976d2);
     color: #fff;
     text-align: center;
-    padding: 1.2rem;
+    padding: 0.8rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 header h1 a {
     color: #fff;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-family: 'Nanum Gothic', sans-serif;
 }
 
@@ -202,4 +202,38 @@ h3 {
     background-color: #f8f9fa;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+}
+
+/* Share Buttons Section */
+.share-buttons {
+    text-align: center;
+}
+
+#copy-link-btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #555, #333);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#copy-link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer Links */
+footer .footer-links {
+    margin-bottom: 1rem;
+}
+
+footer .footer-links a {
+    color: #fff;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
 }
