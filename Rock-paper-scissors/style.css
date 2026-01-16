@@ -135,3 +135,39 @@ footer {
     font-size: 2rem;
     font-weight: bold;
 }
+
+.stats-container {
+    margin-top: 2rem;
+    text-align: center;
+    background: var(--card-background-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.stats p {
+    font-size: 1.2rem;
+}
+
+.stats span {
+    font-weight: bold;
+}
+
+#history-log {
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.history-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
