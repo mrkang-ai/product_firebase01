@@ -1,31 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ladder Game</title>
+    <title>사다리 게임 - 온라인 도구모음</title>
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Ladder Game</h1>
-    <div id="setup">
-        <div id="players">
-            <h2>Players</h2>
-            <input type="text" placeholder="Player 1" value="Player 1">
-            <input type="text" placeholder="Player 2" value="Player 2">
+    <header>
+        <h1><a href="/">온라인 도구모음</a></h1>
+    </header>
+    <main>
+        <h1>사다리 게임</h1>
+        <div id="setup">
+            <div id="players">
+                <h2>참가자</h2>
+                <input type="text" placeholder="참가자 1" value="참가자 1">
+                <input type="text" placeholder="참가자 2" value="참가자 2">
+            </div>
+            <div id="results">
+                <h2>결과</h2>
+                <input type="text" placeholder="결과 1" value="결과 1">
+                <input type="text" placeholder="결과 2" value="결과 2">
+            </div>
+            <button id="add-player">참가자 추가</button>
+            <button id="start-game">시작</button>
         </div>
-        <div id="results">
-            <h2>Results</h2>
-            <input type="text" placeholder="Result 1" value="Result 1">
-            <input type="text" placeholder="Result 2" value="Result 2">
+        <div id="game-container" style="display: none;">
+            <canvas id="ladder-canvas"></canvas>
+            <div id="result-display"></div>
         </div>
-        <button id="add-player">Add Player</button>
-        <button id="start-game">Start Game</button>
-    </div>
-    <div id="game-container" style="display: none;">
-        <canvas id="ladder-canvas"></canvas>
-        <div id="result-display"></div>
-    </div>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="/terms.html" target="_blank">이용약관</a>
+            <a href="/privacy.html" target="_blank">개인정보 처리방침</a>
+            <span>문의: metacity9@gmail.com</span>
+        </div>
+        <p>&copy; 2026 온라인 도구모음. All rights reserved.</p>
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>

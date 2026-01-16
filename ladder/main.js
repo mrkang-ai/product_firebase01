@@ -9,26 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     const resultDisplay = document.getElementById('result-display');
 
-    let players = ["Player 1", "Player 2"];
-    let results = ["Result 1", "Result 2"];
+    let players = ["참가자 1", "참가자 2"];
+    let results = ["결과 1", "결과 2"];
     let ladder;
 
     addPlayerBtn.addEventListener('click', () => {
         const playerCount = players.length + 1;
         const newPlayerInput = document.createElement('input');
         newPlayerInput.type = 'text';
-        newPlayerInput.placeholder = `Player ${playerCount}`;
-        newPlayerInput.value = `Player ${playerCount}`;
+        newPlayerInput.placeholder = `참가자 ${playerCount}`;
+        newPlayerInput.value = `참가자 ${playerCount}`;
         playersDiv.appendChild(newPlayerInput);
 
         const newResultInput = document.createElement('input');
         newResultInput.type = 'text';
-        newResultInput.placeholder = `Result ${playerCount}`;
-        newResultInput.value = `Result ${playerCount}`;
+        newResultInput.placeholder = `결과 ${playerCount}`;
+        newResultInput.value = `결과 ${playerCount}`;
         resultsDiv.appendChild(newResultInput);
 
-        players.push(`Player ${playerCount}`);
-        results.push(`Result ${playerCount}`);
+        players.push(`참가자 ${playerCount}`);
+        results.push(`결과 ${playerCount}`);
     });
 
     startGameBtn.addEventListener('click', () => {
