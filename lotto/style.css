@@ -1,255 +1,194 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-/* General Body Styles */
+:root {
+    --primary-color: #3b82f6;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --card-background-color: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
 body {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #eef2f7;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 a {
     text-decoration: none;
-    color: #1a73e8;
+    color: var(--primary-color);
 }
 
-/* Header & Footer */
 header {
-    background: linear-gradient(135deg, #0d47a1, #1976d2);
-    color: #fff;
-    padding: 0.8rem 1.2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: var(--card-background-color);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    box-shadow: 0 1px 3px var(--shadow-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-footer {
-    background: linear-gradient(135deg, #0d47a1, #1976d2);
-    color: #fff;
-    text-align: center;
-    padding: 0.8rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--border-color);
 }
 
 header h1 a {
-    color: #fff;
+    color: var(--text-color);
     font-size: 1.5rem;
-    font-family: 'Nanum Gothic', sans-serif;
-}
-
-/* Share Buttons Section in Header */
-header .share-buttons {
-    text-align: right;
+    font-weight: 700;
 }
 
 header #copy-link-btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
-    border: 1px solid #fff;
-    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
     background: transparent;
-    color: white;
+    color: var(--text-color);
     cursor: pointer;
-    transition: all 0.3s;
-    font-weight: bold;
+    transition: all 0.2s;
+    font-weight: 700;
 }
 
 header #copy-link-btn:hover {
-    background: #fff;
-    color: #1976d2;
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
 }
 
-/* Main Content Container */
 main .container {
-    max-width: 760px;
+    max-width: 800px;
     margin: 2rem auto;
     padding: 1rem;
 }
 
-/* Tool Header */
 .tool-header {
     text-align: center;
-    padding-bottom: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
+
 .tool-header h2 {
-    font-size: 2.5rem;
-    color: #1a237e;
+    font-size: 3rem;
     font-weight: 700;
+    color: var(--text-color);
 }
+
 .tool-header p {
     font-size: 1.1rem;
-    color: #555;
+    color: #64748b;
 }
+
 .btn-external {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.8rem 1.8rem;
-    background: linear-gradient(135deg, #4caf50, #66bb6a);
+    background: var(--primary-color);
     color: #fff;
-    border-radius: 50px;
+    border-radius: 9999px;
     font-weight: bold;
-    transition: all 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px var(--shadow-color);
 }
+
 .btn-external:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Ad Slot Placeholder */
-.ad-slot {
-    text-align: center;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border: 1px dashed #d0d0d0;
-    color: #aaa;
-    border-radius: 8px;
-    max-width: 100%;
-}
-
-/* Sections */
 section {
     margin-bottom: 2.5rem;
-    background: #fff;
+    background: var(--card-background-color);
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
 }
 
 h3 {
-    font-size: 1.6rem;
-    color: #1a237e;
-    font-family: 'Nanum Gothic', sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    font-weight: 700;
     margin-bottom: 1.5rem;
 }
 
-/* Lotto Ball Styles */
 .lotto-ball {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     font-weight: bold;
-    color: #fff;
-    font-size: 1.1rem;
+    color: var(--text-color);
+    font-size: 1.2rem;
     margin: 0 0.2rem;
-    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.2), 2px 2px 5px rgba(255,255,255,0.7);
+    background-color: #fff;
+    border: 1px solid var(--border-color);
 }
 
-.ball-yellow { background-color: #fbc02d; } /* 1-10 */
-.ball-blue { background-color: #1976d2; }   /* 11-20 */
-.ball-red { background-color: #d32f2f; }     /* 21-30 */
-.ball-gray { background-color: #616161; }   /* 31-40 */
-.ball-green { background-color: #388e3c; }  /* 41-45 */
-.ball-bonus { background-color: #9e9e9e; }
-
-/* Latest Winning Numbers */
 .win-numbers {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
+
 .win-numbers .bonus-plus {
     font-size: 1.5rem;
-    color: #555;
+    color: #94a3b8;
     margin: 0 0.5rem;
 }
 
-/* Generator Section */
 .generator { text-align: center; }
 
 #generate-btn {
     padding: 1rem 3rem;
     font-size: 1.4rem;
     border: none;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #1a73e8, #4285f4);
+    border-radius: 9999px;
+    background: var(--primary-color);
     color: white;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s;
     font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
+
 #generate-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
 }
 
 #generated-numbers-container {
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1rem;
 }
 
 .generated-set {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 1.2rem;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
+    padding: 1rem 1.5rem;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    animation: fadeIn 0.5s ease;
 }
+
 .generated-set .numbers {
     display: flex;
     gap: 0.5rem;
 }
+
 .generated-set .timestamp {
     font-size: 0.9rem;
-    color: #777;
+    color: #64748b;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Lotto Info Section */
-.lotto-info article {
-    margin-bottom: 1.5rem;
-}
-.lotto-info h4 {
-    font-size: 1.2rem;
-    color: #0d47a1;
-    margin-bottom: 0.5rem;
-}
-.lotto-info p {
-    margin: 0;
-    padding-left: 1rem;
-    border-left: 3px solid #1976d2;
-    background-color: #f8f9fa;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
-
-
-/* Footer Links */
-footer .footer-links {
-    margin-bottom: 1rem;
-}
-
-footer .footer-links a {
-    color: #fff;
-    margin: 0 0.5rem;
-    font-size: 0.9rem;
-}
-
-/* Prize Table */
 .latest-win table {
     width: 100%;
     border-collapse: collapse;
@@ -257,13 +196,13 @@ footer .footer-links a {
 }
 
 .latest-win th, .latest-win td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     padding: 0.8rem;
     text-align: right;
 }
 
 .latest-win th {
-    background-color: #f8f9fa;
+    background-color: #f8fafc;
     font-weight: bold;
     text-align: center;
 }
@@ -271,4 +210,24 @@ footer .footer-links a {
 .latest-win td:first-child {
     text-align: center;
     font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    background-color: var(--card-background-color);
+    color: #64748b;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a, .footer-links span {
+    color: #64748b;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+    text-decoration: none;
 }
