@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임 - 온라인 도구모음</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="/">온라인 도구모음</a></h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <header class="tool-header">
+                <h2>✊✌️✋ 가위바위보 게임</h2>
+                <p>가위, 바위, 보 중 하나를 선택하여 컴퓨터와 대결하세요!</p>
+            </header>
+
+            <section class="game-container">
+                <div class="choices">
+                    <button class="choice-btn" data-choice="rock">✊</button>
+                    <button class="choice-btn" data-choice="paper">✋</button>
+                    <button class="choice-btn" data-choice="scissors">✌️</button>
+                </div>
+                <div class="result-container">
+                    <div class="result-item">
+                        <h3>나의 선택</h3>
+                        <p id="user-choice"></p>
+                    </div>
+                    <div class="result-item">
+                        <h3>컴퓨터의 선택</h3>
+                        <p id="computer-choice"></p>
+                    </div>
+                </div>
+                <h3 id="result-text">결과</h3>
+            </section>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/terms.html" target="_blank">이용약관</a>
+            <a href="/privacy.html" target="_blank">개인정보 처리방침</a>
+            <span>문의: metacity9@gmail.com</span>
+        </div>
+        <p>&copy; 2026 온라인 도구모음. All rights reserved.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
