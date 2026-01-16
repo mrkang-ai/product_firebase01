@@ -21,9 +21,24 @@ header, footer {
     padding: 1rem;
 }
 
+footer {
+    padding: 1.5rem;
+}
+
 header h1 a {
     color: #fff;
     font-size: 1.8rem;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a, .footer-links span {
+    color: #fff;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+    text-decoration: none;
 }
 
 /* Main Content Container */

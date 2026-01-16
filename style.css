@@ -74,8 +74,19 @@ nav h2 {
 /* Footer */
 footer {
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
     margin-top: 2rem;
     background-color: #333;
     color: #fff;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a, .footer-links span {
+    color: #fff;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+    text-decoration: none;
 }

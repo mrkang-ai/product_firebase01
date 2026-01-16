@@ -16,7 +16,17 @@ a {
 }
 
 /* Header & Footer */
-header, footer {
+header {
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer {
     background: linear-gradient(135deg, #0d47a1, #1976d2);
     color: #fff;
     text-align: center;
@@ -28,6 +38,28 @@ header h1 a {
     color: #fff;
     font-size: 1.5rem;
     font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* Share Buttons Section in Header */
+header .share-buttons {
+    text-align: right;
+}
+
+header #copy-link-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+header #copy-link-btn:hover {
+    background: #fff;
+    color: #1976d2;
 }
 
 /* Main Content Container */
@@ -204,28 +236,7 @@ h3 {
     padding-bottom: 0.5rem;
 }
 
-/* Share Buttons Section */
-.share-buttons {
-    text-align: center;
-}
 
-#copy-link-btn {
-    padding: 0.8rem 1.8rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #555, #333);
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-weight: bold;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-#copy-link-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
 
 /* Footer Links */
 footer .footer-links {
@@ -236,4 +247,28 @@ footer .footer-links a {
     color: #fff;
     margin: 0 0.5rem;
     font-size: 0.9rem;
+}
+
+/* Prize Table */
+.latest-win table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.latest-win th, .latest-win td {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    text-align: right;
+}
+
+.latest-win th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    text-align: center;
+}
+
+.latest-win td:first-child {
+    text-align: center;
+    font-weight: bold;
 }

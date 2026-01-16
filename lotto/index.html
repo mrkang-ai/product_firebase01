@@ -11,6 +11,9 @@
 <body>
     <header>
         <h1><a href="/">온라인 도구모음</a></h1>
+        <div class="share-buttons">
+            <button id="copy-link-btn">🔗 페이지 공유</button>
+        </div>
     </header>
 
     <main>
@@ -27,12 +30,6 @@
                 <div id="generated-numbers-container">
                     <!-- 생성된 번호가 여기에 추가됩니다. -->
                 </div>
-            </section>
-
-            <section class="share-buttons">
-                <h3>🔗 페이지 공유하기</h3>
-                <button id="copy-link-btn">링크 복사</button>
-                <!-- Add social media share buttons here if desired -->
             </section>
 
             <!-- Google AdSense Slot -->
@@ -55,7 +52,50 @@
                         <span class="bonus-plus">+</span>
                         <span class="lotto-ball ball-bonus">23</span>
                     </div>
-                    <p><strong>1등 총 당첨금:</strong> 28,032,105,000원</p>
+                    
+                    <h4>- 등위별 당첨금액</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>등위</th>
+                                <th>총 당첨금액</th>
+                                <th>당첨게임 수</th>
+                                <th>1게임당 당첨금액</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1등</td>
+                                <td>28,032,105,000원</td>
+                                <td>15</td>
+                                <td>1,868,807,000원</td>
+                            </tr>
+                            <tr>
+                                <td>2등</td>
+                                <td>4,672,017,528원</td>
+                                <td>74</td>
+                                <td>63,135,372원</td>
+                            </tr>
+                            <tr>
+                                <td>3등</td>
+                                <td>4,672,018,470원</td>
+                                <td>3,329</td>
+                                <td>1,403,430원</td>
+                            </tr>
+                            <tr>
+                                <td>4등</td>
+                                <td>8,643,350,000원</td>
+                                <td>172,867</td>
+                                <td>50,000원</td>
+                            </tr>
+                            <tr>
+                                <td>5등</td>
+                                <td>14,486,855,000원</td>
+                                <td>2,897,371</td>
+                                <td>5,000원</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
@@ -87,7 +127,7 @@
         <div class="footer-links">
             <a href="/terms.html" target="_blank">이용약관</a>
             <a href="/privacy.html" target="_blank">개인정보 처리방침</a>
-            <a href="mailto:metacity9@gmail.com">문의하기</a>
+            <span>문의: metacity9@gmail.com</span>
         </div>
         <p>&copy; 2026 온라인 도구모음. All rights reserved.</p>
     </footer>
