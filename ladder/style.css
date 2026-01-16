@@ -53,6 +53,25 @@ button:hover {
     align-items: center;
 }
 
+#game-controls {
+    margin-bottom: 1rem;
+}
+
+#start-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 500px; /* Should match canvas width calculation */
+    padding: 0 50px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+#start-buttons button {
+    flex-grow: 1;
+    margin: 0 5px;
+}
+
 canvas {
     background-color: white;
     border-radius: 8px;
