@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ladder Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Ladder Game</h1>
+    <div id="setup">
+        <div id="players">
+            <h2>Players</h2>
+            <input type="text" placeholder="Player 1" value="Player 1">
+            <input type="text" placeholder="Player 2" value="Player 2">
+        </div>
+        <div id="results">
+            <h2>Results</h2>
+            <input type="text" placeholder="Result 1" value="Result 1">
+            <input type="text" placeholder="Result 2" value="Result 2">
+        </div>
+        <button id="add-player">Add Player</button>
+        <button id="start-game">Start Game</button>
+    </div>
+    <div id="game-container" style="display: none;">
+        <canvas id="ladder-canvas"></canvas>
+        <div id="result-display"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
