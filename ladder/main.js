@@ -16,23 +16,32 @@ document.addEventListener('DOMContentLoaded', () => {
     let results = [];
     let ladder;
     let areRungsVisible = false;
+    let playerStarted = [];
+    let playedCount = 0;
 
     function updatePlayerInputs() {
         const count = parseInt(playerCountInput.value, 10);
         playersDiv.innerHTML = '<h2>참가자</h2>';
         resultsDiv.innerHTML = '<h2>결과</h2>';
+        players = [];
+        results = [];
 
         for (let i = 1; i <= count; i++) {
+            const playerName = `참가자 ${i}`;
+            const resultName = `결과 ${i}`;
+            players.push(playerName);
+            results.push(resultName);
+
             const newPlayerInput = document.createElement('input');
             newPlayerInput.type = 'text';
-            newPlayerInput.placeholder = `참가자 ${i}`;
-            newPlayerInput.value = `참가자 ${i}`;
+            newPlayerInput.placeholder = playerName;
+            newPlayerInput.value = playerName;
             playersDiv.appendChild(newPlayerInput);
 
             const newResultInput = document.createElement('input');
             newResultInput.type = 'text';
-            newResultInput.placeholder = `결과 ${i}`;
-            newResultInput.value = `결과 ${i}`;
+            newResultInput.placeholder = resultName;
+            newResultInput.value = resultName;
             resultsDiv.appendChild(newResultInput);
         }
     }
@@ -49,13 +58,17 @@ document.addEventListener('DOMContentLoaded', () => {
         gameContainer.style.display = 'flex';
 
         const numPlayers = players.length;
+        playerStarted = Array(numPlayers).fill(false);
+        playedCount = 0;
+
         const ladderWidth = numPlayers * 100;
         const ladderHeight = 500;
         canvas.width = ladderWidth;
         canvas.height = ladderHeight;
 
         areRungsVisible = false;
-        toggleRungsBtn.textContent = '사다리보기';
+        toggleRungsBtn.textContent = '사다리 보이기';
+        resultDisplay.innerHTML = '';
 
         generateLadder(numPlayers, ladderHeight);
         createStartButtons();
@@ -65,13 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
     resetGameBtn.addEventListener('click', () => {
         setupDiv.style.display = 'block';
         gameContainer.style.display = 'none';
-        resultDisplay.textContent = '';
-        startButtonsDiv.innerHTML = '';
     });
 
     toggleRungsBtn.addEventListener('click', () => {
         areRungsVisible = !areRungsVisible;
-        toggleRungsBtn.textContent = areRungsVisible ? '결과보기' : '사다리보기';
+        toggleRungsBtn.textContent = areRungsVisible ? '사다리 감추기' : '사다리 보이기';
         drawLadder();
     });
 
@@ -80,10 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
         players.forEach((player, i) => {
             const button = document.createElement('button');
             button.textContent = '시작';
-            button.addEventListener('click', () => {
-                animatePath(i);
-                // Disable all start buttons after one is clicked
-                startButtonsDiv.querySelectorAll('button').forEach(btn => btn.disabled = true);
+            button.dataset.playerIndex = i;
+            button.addEventListener('click', (e) => {
+                const index = parseInt(e.target.dataset.playerIndex, 10);
+                if (!playerStarted[index]) {
+                    animatePath(index);
+                }
             });
             startButtonsDiv.appendChild(button);
         });
@@ -95,19 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 0; i < rungCount; i++) {
             const x = Math.floor(Math.random() * (numPlayers - 1));
-            const y = Math.floor(Math.random() * (height - 60)) + 30;
+            const y = Math.floor(Math.random() * (height - 80)) + 40;
 
             let isOccupied = false;
-            for(let checkY = Math.max(0, y - 10); checkY < Math.min(height, y + 10); checkY++) {
-                if(ladder[x][checkY] !== 0 || ladder[x+1][checkY] !== 0) {
+            for(let checkY = Math.max(0, y - 15); checkY < Math.min(height, y + 15); checkY++) {
+                if(ladder[x][checkY] !== 0 || (ladder[x+1] && ladder[x+1][checkY] !== 0)) {
                     isOccupied = true;
                     break;
                 }
             }
             
             if (!isOccupied) {
-                ladder[x][y] = 1; // Rung to the right
-                ladder[x + 1][y] = -1; // Rung to the left
+                ladder[x][y] = 1;
+                ladder[x + 1][y] = -1;
             }
         }
     }
@@ -116,15 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.lineWidth = 2;
         ctx.strokeStyle = 'black';
-
-        // Draw player names
         ctx.font = '16px Arial';
         ctx.textAlign = 'center';
-        players.forEach((player, i) => {
-            ctx.fillText(player, i * 100 + 50, 20);
-        });
 
-        // Draw vertical lines
+        players.forEach((player, i) => ctx.fillText(player, i * 100 + 50, 20));
+        results.forEach((result, i) => ctx.fillText(result, i * 100 + 50, canvas.height - 10));
+
         for (let i = 0; i < players.length; i++) {
             ctx.beginPath();
             ctx.moveTo(i * 100 + 50, 30);
@@ -132,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.stroke();
         }
 
-        // Draw horizontal rungs
         if (areRungsVisible) {
             for (let i = 0; i < ladder.length - 1; i++) {
                 for (let j = 0; j < ladder[i].length; j++) {
@@ -145,32 +154,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-
-        // Draw results
-        results.forEach((result, i) => {
-            ctx.fillText(result, i * 100 + 50, canvas.height - 10);
-        });
     }
 
     function animatePath(playerIndex) {
+        playerStarted[playerIndex] = true;
+        playedCount++;
+
+        const startButtons = startButtonsDiv.querySelectorAll('button');
+        startButtons.forEach(btn => btn.disabled = true);
+        resetGameBtn.disabled = true;
+
         let currentX = playerIndex;
         let y = 30;
         let path = [{x: currentX * 100 + 50, y: y}];
 
         const anim = () => {
-            drawLadder(); 
+            drawLadder();
             ctx.strokeStyle = 'red';
             ctx.lineWidth = 3;
             ctx.beginPath();
-            ctx.moveTo(path[0].x, path[0].y);
-            for(let i = 1; i < path.length; i++) {
-                ctx.lineTo(path[i].x, path[i].y);
-            }
+            path.forEach((p, i) => {
+                if (i === 0) ctx.moveTo(p.x, p.y);
+                else ctx.lineTo(p.x, p.y);
+            });
             ctx.stroke();
 
             if (y < canvas.height - 30) {
                 let moved = false;
-                 if (ladder[currentX] && ladder[currentX][y] === 1) {
+                if (ladder[currentX] && ladder[currentX][y] === 1) {
                     path.push({x: (currentX + 1) * 100 + 50, y: y});
                     currentX++;
                     moved = true;
@@ -181,36 +192,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 y++;
-                if(!moved) {
-                    path[path.length-1].y = y;
+                if (!moved) {
+                    path[path.length - 1].y = y;
                 } else {
                     path.push({x: currentX * 100 + 50, y: y});
                 }
-
                 requestAnimationFrame(anim);
             } else {
-                 resultDisplay.textContent = `${players[playerIndex]} -> ${results[currentX]}`;
-                 ctx.strokeStyle = 'black';
-                 ctx.lineWidth = 2;
-                 areRungsVisible = true; // Show rungs at the end
-                 toggleRungsBtn.textContent = '결과보기';
-                 drawLadder();
-                 // Re-draw final path
-                 ctx.strokeStyle = 'red';
-                 ctx.lineWidth = 3;
-                 ctx.beginPath();
-                 ctx.moveTo(path[0].x, path[0].y);
-                 for(let i = 1; i < path.length; i++) {
-                     ctx.lineTo(path[i].x, path[i].y);
-                 }
-                 ctx.stroke();
-                 resetGameBtn.disabled = false;
+                const resultP = document.createElement('p');
+                resultP.textContent = `${players[playerIndex]} -> ${results[currentX]}`;
+                resultDisplay.appendChild(resultP);
+
+                if (playedCount < players.length) {
+                    startButtons.forEach((btn, i) => {
+                        if (!playerStarted[i]) {
+                            btn.disabled = false;
+                        }
+                    });
+                }
+                
+                resetGameBtn.disabled = false;
+                
+                // Redraw final state
+                areRungsVisible = true;
+                toggleRungsBtn.textContent = '사다리 감추기';
+                drawLadder();
+                ctx.strokeStyle = 'red';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                path.forEach((p, i) => {
+                    if (i === 0) ctx.moveTo(p.x, p.y);
+                    else ctx.lineTo(p.x, p.y);
+                });
+                ctx.stroke();
             }
-        }
-        resetGameBtn.disabled = true;
+        };
         anim();
     }
-    
-    // Initial setup
+
     updatePlayerInputs();
 });

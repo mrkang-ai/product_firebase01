@@ -76,11 +76,42 @@ canvas {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+}
+
+.toggle-button {
+    margin-top: 1rem;
+    background-color: #28a745;
+}
+
+.toggle-button:hover {
+    background-color: #218838;
 }
 
 #result-display {
     margin-top: 20px;
-    font-size: 1.2em;
-    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e9ecef;
+    width: 100%;
+    max-width: 480px;
     text-align: center;
+}
+
+#result-display p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.reset-button {
+    margin-top: 1.5rem;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #dc3545;
+    width: 100%;
+    max-width: 500px;
+}
+
+.reset-button:hover {
+    background-color: #c82333;
 }
