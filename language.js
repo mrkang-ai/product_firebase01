@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
             el.textContent = el.getAttribute(`data-lang-${lang}`);
         });
         document.title = document.querySelector('title').getAttribute(`data-lang-${lang}`);
+        document.querySelector('meta[name="description"]').setAttribute('content', document.querySelector('meta[name="description"]').getAttribute(`data-lang-${lang}`));
+        document.querySelector('meta[property="og:title"]').setAttribute('content', document.querySelector('meta[property="og:title"]').getAttribute(`data-lang-${lang}`));
+        document.querySelector('meta[property="og:description"]').setAttribute('content', document.querySelector('meta[property="og:description"]').getAttribute(`data-lang-${lang}`));
+        document.querySelector('meta[name="twitter:title"]').setAttribute('content', document.querySelector('meta[name="twitter:title"]').getAttribute(`data-lang-${lang}`));
+        document.querySelector('meta[name="twitter:description"]').setAttribute('content', document.querySelector('meta[name="twitter:description"]').getAttribute(`data-lang-${lang}`));
     };
 
     langKoButton.addEventListener('click', () => setLanguage('ko'));
