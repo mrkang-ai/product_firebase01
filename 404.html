@@ -6,13 +6,19 @@
     <title data-lang-ko="페이지를 찾을 수 없습니다 - 온라인 도구모음" data-lang-en="Page Not Found - Online Toolkit">페이지를 찾을 수 없습니다 - 온라인 도구모음</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <h1><a href="/" data-lang-ko="온라인 도구모음" data-lang-en="Online Toolkit">온라인 도구모음</a></h1>
         <div class="language-switcher">
-            <button id="lang-ko">한글</button>
-            <button id="lang-en">English</button>
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fas fa-globe"></i></button>
+                <div class="dropdown-content">
+                    <a href="#" id="lang-ko">한국어</a>
+                    <a href="#" id="lang-en">English</a>
+                </div>
+            </div>
         </div>
     </header>
     <main>

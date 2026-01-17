@@ -121,11 +121,56 @@ h3 {
     height: 48px;
     border-radius: 50%;
     font-weight: bold;
-    color: var(--text-color);
+    color: #fff; /* Text color for better contrast on colored balls */
     font-size: 1.2rem;
     margin: 0 0.2rem;
-    background-color: #fff;
-    border: 1px solid var(--border-color);
+    /* Basic ball styling with gradient and shadow */
+    background: linear-gradient(145deg, #e0e0e0, #ffffff);
+    box-shadow: 3px 3px 6px #b8b8b8, -3px -3px 6px #ffffff;
+    border: none; /* Remove border as shadow will provide depth */
+    position: relative;
+    overflow: hidden;
+}
+
+.lotto-ball::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 20%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.7;
+}
+
+/* Color variations for lotto balls */
+/* 1-10: yellow */
+.lotto-ball:nth-child(-n+10) {
+    background: linear-gradient(145deg, #f0b000, #ffec8b);
+    box-shadow: 3px 3px 6px #cc9900, -3px -3px 6px #ffffb3;
+}
+/* 11-20: blue */
+.lotto-ball:nth-child(n+11):nth-child(-n+20) {
+    background: linear-gradient(145deg, #007bff, #82caff);
+    box-shadow: 3px 3px 6px #0056b3, -3px -3px 6px #b3e0ff;
+}
+/* 21-30: red */
+.lotto-ball:nth-child(n+21):nth-child(-n+30) {
+    background: linear-gradient(145deg, #dc3545, #ff8c8c);
+    box-shadow: 3px 3px 6px #a71d2a, -3px -3px 6px #ffb3b3;
+}
+/* 31-40: gray */
+.lotto-ball:nth-child(n+31):nth-child(-n+40) {
+    background: linear-gradient(145deg, #6c757d, #adb5bd);
+    box-shadow: 3px 3px 6px #495057, -3px -3px 6px #dee2e6;
+}
+/* 41-45: green */
+.lotto-ball:nth-child(n+41):nth-child(-n+45) {
+    background: linear-gradient(145deg, #28a745, #7ee69a);
+    box-shadow: 3px 3px 6px #1e7e34, -3px -3px 6px #a5edb9;
 }
 
 .win-numbers {

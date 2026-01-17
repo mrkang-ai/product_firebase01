@@ -24,6 +24,7 @@ header {
     padding: 2rem;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
+    position: relative;
 }
 
 header h1 {
@@ -87,6 +88,19 @@ nav h2 {
     border: 1px solid var(--border-color);
 }
 
+.faq {
+    margin-top: 3rem;
+    background: var(--card-background-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
 footer {
     text-align: center;
     padding: 2rem;
@@ -105,4 +119,144 @@ footer {
     margin: 0 0.5rem;
     font-size: 0.9rem;
     text-decoration: none;
+}
+
+.language-switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.language-switcher .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.language-switcher .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.language-switcher .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.language-switcher .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.language-switcher .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.language-switcher .dropbtn {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.language-switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.language-switcher .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.language-switcher .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.language-switcher .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.language-switcher .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.language-switcher .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.language-switcher .dropbtn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.language-switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.language-switcher .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.language-switcher .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.language-switcher .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.language-switcher .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.language-switcher .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.language-switcher .dropbtn {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
