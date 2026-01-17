@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사다리 게임 - 온라인 도구모음</title>
+    <title><span data-lang-ko="사다리 게임 - 온라인 도구모음" data-lang-en="Ladder Game - Online Toolkit">사다리 게임 - 온라인 도구모음</span></title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -37,43 +37,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <header>
-        <h1><a href="/">온라인 도구모음</a></h1>
+        <h1><a href="/"><span data-lang-ko="온라인 도구모음" data-lang-en="Online Toolkit">온라인 도구모음</span></a></h1>
+        <div class="language-switcher">
+            <button id="lang-ko">한글</button>
+            <button id="lang-en">English</button>
+        </div>
     </header>
     <main>
-        <h1>사다리 게임</h1>
+        <h1><span data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</span></h1>
         <div id="setup">
             <div id="player-count-selector">
-                <label for="player-count">참가자 수:</label>
+                <label for="player-count"><span data-lang-ko="참가자 수:" data-lang-en="Number of Participants:">참가자 수:</span></label>
                 <input type="number" id="player-count" value="2" min="2" max="20">
             </div>
             <div id="players">
-                <h2>참가자</h2>
+                <h2><span data-lang-ko="참가자" data-lang-en="Participants">참가자</span></h2>
                 <input type="text" placeholder="참가자 1" value="참가자 1">
                 <input type="text" placeholder="참가자 2" value="참가자 2">
             </div>
             <div id="results">
-                <h2>결과</h2>
+                <h2><span data-lang-ko="결과" data-lang-en="Results">결과</span></h2>
                 <input type="text" placeholder="결과 1" value="결과 1">
                 <input type="text" placeholder="결과 2" value="결과 2">
             </div>
-            <button id="start-game">시작</button>
+            <button id="start-game"><span data-lang-ko="시작" data-lang-en="Start">시작</span></button>
         </div>
         <div id="game-container" style="display: none;">
             <div id="start-buttons"></div>
             <canvas id="ladder-canvas"></canvas>
-            <button id="toggle-rungs" class="toggle-button">사다리 보이기</button>
+            <button id="toggle-rungs" class="toggle-button"><span data-lang-ko="사다리 보이기" data-lang-en="Show Rungs">사다리 보이기</span></button>
             <div id="result-display"></div>
-            <button id="reset-game" class="reset-button">다시하기</button>
+            <button id="reset-game" class="reset-button"><span data-lang-ko="다시하기" data-lang-en="Play Again">다시하기</span></button>
         </div>
     </main>
     <footer>
         <div class="footer-links">
-            <a href="/terms.html" target="_blank">이용약관</a>
-            <a href="/privacy.html" target="_blank">개인정보 처리방침</a>
-            <span>문의: metacity9@gmail.com</span>
+            <a href="/terms.html" target="_blank"><span data-lang-ko="이용약관" data-lang-en="Terms of Service">이용약관</span></a>
+            <a href="/privacy.html" target="_blank"><span data-lang-ko="개인정보 처리방침" data-lang-en="Privacy Policy">개인정보 처리방침</span></a>
+            <span><span data-lang-ko="문의:" data-lang-en="Contact:">문의:</span> metacity9@gmail.com</span>
         </div>
-        <p>&copy; 2026 온라인 도구모음. All rights reserved.</p>
+        <p><span data-lang-ko="&copy; 2026 온라인 도구모음. All rights reserved." data-lang-en="&copy; 2026 Online Toolkit. All rights reserved.">&copy; 2026 온라인 도구모음. All rights reserved.</span></p>
     </footer>
     <script src="main.js"></script>
+    <script src="../language.js"></script>
 </body>
 </html>
