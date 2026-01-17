@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateText = (lang) => {
         document.querySelectorAll('[data-lang-ko]').forEach(el => {
-            el.textContent = el.dataset[`lang-${lang}`];
+            el.textContent = el.getAttribute(`data-lang-${lang}`);
         });
+        document.title = document.querySelector('title').getAttribute(`data-lang-${lang}`);
     };
 
     langKoButton.addEventListener('click', () => setLanguage('ko'));
