@@ -1,117 +1,164 @@
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #3b82f6;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --card-background-color: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
-h1 {
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+main .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.tool-header {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+}
+
+.tool-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.tool-header p {
+    font-size: 1.1rem;
+    color: #64748b;
+}
+
+section {
+    margin-bottom: 2.5rem;
+    background: var(--card-background-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
 
 #setup {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
     width: 100%;
     max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#player-count-selector {
+    margin-bottom: 1.5rem;
 }
 
 #players, #results {
-    margin-bottom: 10px;
+    margin-bottom: 1.5rem;
 }
 
-input {
+#setup input[type="number"], #setup input[type="text"] {
     display: block;
-    margin-bottom: 5px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: calc(100% - 18px);
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
 }
 
-button {
-    padding: 10px 15px;
+#start-game, .toggle-button, .reset-button, #start-buttons button {
+    padding: 0.8rem 1.5rem;
     border: none;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-right: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
 }
 
-button:hover {
-    background-color: #0056b3;
+#start-game:hover, #start-buttons button:hover {
+    background-color: #2563eb;
+}
+
+#start-game {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
 }
 
 #game-container {
-    display: flex;
+    display: none; /* Initially hidden */
     flex-direction: column;
     align-items: center;
-}
-
-#game-controls {
-    margin-bottom: 1rem;
 }
 
 #start-buttons {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    max-width: 500px; /* Should match canvas width calculation */
-    padding: 0 50px;
-    box-sizing: border-box;
+    max-width: 500px;
     margin-bottom: 1rem;
-}
-
-#start-buttons button {
-    flex-grow: 1;
-    margin: 0 5px;
+    gap: 10px;
 }
 
 canvas {
-    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
     margin-top: 1rem;
 }
 
-.toggle-button {
+.toggle-button, .reset-button {
     margin-top: 1rem;
-    background-color: #28a745;
-}
-
-.toggle-button:hover {
-    background-color: #218838;
-}
-
-#result-display {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #e9ecef;
-    width: 100%;
-    max-width: 480px;
-    text-align: center;
-}
-
-#result-display p {
-    margin: 5px 0;
-    font-size: 1.1em;
-}
-
-.reset-button {
-    margin-top: 1.5rem;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    background-color: #dc3545;
     width: 100%;
     max-width: 500px;
 }
 
+.toggle-button {
+    background-color: #16a34a;
+}
+.toggle-button:hover {
+    background-color: #15803d;
+}
+
+.reset-button {
+    background-color: #dc2626;
+}
 .reset-button:hover {
-    background-color: #c82333;
+    background-color: #b91c1c;
+}
+
+#result-display {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #f1f5f9;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#result-display p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
 }

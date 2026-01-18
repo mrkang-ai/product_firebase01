@@ -49,30 +49,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div id="header-placeholder"></div>
     <main>
-        <h1 data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</h1>
-        <div id="setup">
-            <div id="player-count-selector">
-                <label for="player-count" data-lang-ko="참가자 수:" data-lang-en="Number of Participants:">참가자 수:</label>
-                <input type="number" id="player-count" value="2" min="2" max="20">
-            </div>
-            <div id="players">
-                <h2 data-lang-ko="참가자" data-lang-en="Participants">참가자</h2>
-                <input type="text" placeholder="참가자 1" value="참가자 1">
-                <input type="text" placeholder="참가자 2" value="참가자 2">
-            </div>
-            <div id="results">
-                <h2 data-lang-ko="결과" data-lang-en="Results">결과</h2>
-                <input type="text" placeholder="결과 1" value="결과 1">
-                <input type="text" placeholder="결과 2" value="결과 2">
-            </div>
-            <button id="start-game" data-lang-ko="시작" data-lang-en="Start">시작</button>
-        </div>
-        <div id="game-container" style="display: none;">
-            <div id="start-buttons"></div>
-            <canvas id="ladder-canvas"></canvas>
-            <button id="toggle-rungs" class="toggle-button" data-lang-ko="사다리 보이기" data-lang-en="Show Rungs">사다리 보이기</button>
-            <div id="result-display"></div>
-            <button id="reset-game" class="reset-button" data-lang-ko="다시하기" data-lang-en="Play Again">다시하기</button>
+        <div class="container">
+            <header class="tool-header">
+                <h2 data-lang-ko="🪜 사다리 게임" data-lang-en="🪜 Ladder Game">🪜 사다리 게임</h2>
+                <p data-lang-ko="친구들과 함께 즐거운 내기를 해보세요." data-lang-en="Have a fun bet with your friends.">친구들과 함께 즐거운 내기를 해보세요.</p>
+            </header>
+            <section>
+                <div id="setup">
+                    <div id="player-count-selector">
+                        <label for="player-count" data-lang-ko="참가자 수:" data-lang-en="Number of Participants:">참가자 수:</label>
+                        <input type="number" id="player-count" value="2" min="2" max="20">
+                    </div>
+                    <div id="players">
+                        <h3 data-lang-ko="참가자" data-lang-en="Participants">참가자</h3>
+                        <input type="text" placeholder="참가자 1" value="참가자 1">
+                        <input type="text" placeholder="참가자 2" value="참가자 2">
+                    </div>
+                    <div id="results">
+                        <h3 data-lang-ko="결과" data-lang-en="Results">결과</h3>
+                        <input type="text" placeholder="결과 1" value="결과 1">
+                        <input type="text" placeholder="결과 2" value="결과 2">
+                    </div>
+                    <button id="start-game" data-lang-ko="시작" data-lang-en="Start">시작</button>
+                </div>
+            </section>
+            <section id="game-container" style="display: none;">
+                <div id="start-buttons"></div>
+                <canvas id="ladder-canvas"></canvas>
+                <button id="toggle-rungs" class="toggle-button" data-lang-ko="사다리 보이기" data-lang-en="Show Rungs">사다리 보이기</button>
+                <div id="result-display"></div>
+                <button id="reset-game" class="reset-button" data-lang-ko="다시하기" data-lang-en="Play Again">다시하기</button>
+            </section>
         </div>
     </main>
     <div id="footer-placeholder"></div>
