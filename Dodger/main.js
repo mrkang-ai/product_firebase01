@@ -9,13 +9,13 @@ let stop = false;
 
 // Image loading
 const characterImg = new Image();
-characterImg.src = 'Dodger/images/character.png';
+characterImg.src = 'images/character.png';
 const carrotImg = new Image();
-carrotImg.src = 'Dodger/images/carrot.png';
+carrotImg.src = 'images/carrot.png';
 const cloudLImg = new Image();
-cloudLImg.src = 'Dodger/images/cloud_l.png';
+cloudLImg.src = 'images/cloud_l.png';
 const cloudSImg = new Image();
-cloudSImg.src = 'Dodger/images/cloud_s.png';
+cloudSImg.src = 'images/cloud_s.png';
 
 let imagesLoaded = 0;
 const totalImages = 4;
@@ -255,14 +255,3 @@ function keyUp(e) {
 
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
-
-// Initial call to update to draw the start screen, will only start game loop after images are loaded
-// if (imagesLoaded === totalImages) {
-//     update();
-// } else {
-//     // Draw a loading screen or do nothing until images are loaded
-//     ctx.font = '30px Arial';
-//     ctx.fillStyle = 'black';
-//     ctx.textAlign = 'center';
-//     ctx.fillText('Loading images...', canvas.width / 2, canvas.height / 2);
-// }
