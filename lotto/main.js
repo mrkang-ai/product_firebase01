@@ -28,6 +28,19 @@ function generateLottoNumbers() {
 }
 
 /**
+ * 숫자에 따라 적절한 로또 공 색상 클래스를 반환합니다.
+ * @param {number} number - 로또 번호
+ * @returns {string} - CSS 색상 클래스
+ */
+function getBallColorClass(number) {
+    if (number <= 10) return 'ball-yellow';
+    if (number <= 20) return 'ball-blue';
+    if (number <= 30) return 'ball-red';
+    if (number <= 40) return 'ball-grey';
+    return 'ball-green';
+}
+
+/**
  * 생성된 번호 세트를 화면에 새로운 줄로 추가합니다.
  * @param {number[]} numbers - 생성된 로또 번호 배열
  */
@@ -40,7 +53,7 @@ function appendNewNumbers(numbers) {
 
     numbers.forEach(number => {
         const numberSpan = document.createElement('span');
-        numberSpan.className = 'lotto-ball';
+        numberSpan.className = `lotto-ball ${getBallColorClass(number)}`;
         numberSpan.textContent = number;
         numbersDiv.appendChild(numberSpan);
     });
