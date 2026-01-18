@@ -24,3 +24,15 @@ header .language-switcher .dropdown:hover .dropdown-content {
 header {
     overflow: visible !important; /* Ensure header doesn't clip the dropdown */
 }
+
+/* More specific rules to override conflicting styles */
+header .language-switcher .dropdown-content a {
+    color: var(--text-color) !important; /* Override the blue link color */
+    text-align: left !important; /* Override any centered text alignment */
+    display: block !important; /* Ensure it's a block element */
+    padding: 10px 15px !important; /* Add some padding */
+}
+
+header .language-switcher .dropdown-content a:hover {
+    background-color: var(--border-color) !important;
+}
