@@ -1,0 +1,26 @@
+/* Fix for language dropdown being cut off */
+header .language-switcher .dropdown {
+    position: relative; /* This will be the reference for the absolute positioning of the dropdown-content */
+}
+
+header .language-switcher .dropdown-content {
+    position: absolute;
+    display: none;
+    min-width: 100px;
+    background-color: var(--card-background-color);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    overflow: visible !important; /* Force override */
+    max-height: none !important; /* Force override */
+    right: 0; /* Align to the right of the button */
+}
+
+header .language-switcher .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+header {
+    overflow: visible !important; /* Ensure header doesn't clip the dropdown */
+}
