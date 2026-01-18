@@ -26,7 +26,11 @@ const player = {
 };
 
 let enemies = [];
-const enemySpeed = 5;
+const INITIAL_ENEMY_SPEED = 5;
+const MAX_ENEMY_SPEED = INITIAL_ENEMY_SPEED * 5;
+const SPEED_INCREASE_INTERVAL = 5; // seconds
+const SPEED_INCREASE_PERCENTAGE = 0.10; // 10%
+let enemySpeed = INITIAL_ENEMY_SPEED;
 const enemySpawnRate = 20; // Lower is faster
 
 let clouds = [];
@@ -36,6 +40,7 @@ const cloudSpawnRate = 100;
 let frameCount = 0;
 let startTime;
 let elapsedTime = 0;
+let lastSpeedIncreaseTime = 0;
 
 function drawPlayer() {
     // ctx.drawImage(personImg, player.x, player.y, player.width, player.height);
@@ -123,6 +128,18 @@ function checkCollisions() {
     });
 }
 
+function updateGameSpeed() {
+    if (elapsedTime > lastSpeedIncreaseTime + SPEED_INCREASE_INTERVAL) {
+        lastSpeedIncreaseTime = elapsedTime;
+        if (enemySpeed < MAX_ENEMY_SPEED) {
+            enemySpeed *= (1 + SPEED_INCREASE_PERCENTAGE);
+            if (enemySpeed > MAX_ENEMY_SPEED) {
+                enemySpeed = MAX_ENEMY_SPEED;
+            }
+        }
+    }
+}
+
 function drawTimer() {
     if (gameState === 'playing') {
         elapsedTime = Math.floor((Date.now() - startTime) / 1000);
@@ -149,6 +166,8 @@ function resetGame() {
     clouds = [];
     frameCount = 0;
     elapsedTime = 0;
+    enemySpeed = INITIAL_ENEMY_SPEED;
+    lastSpeedIncreaseTime = 0;
 }
 
 function update() {
@@ -172,6 +191,8 @@ function update() {
         if (frameCount % cloudSpawnRate === 0) {
             createCloud();
         }
+
+        updateGameSpeed();
 
         drawPlayer();
         movePlayer();
