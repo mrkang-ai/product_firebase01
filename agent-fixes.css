@@ -36,3 +36,8 @@ header .language-switcher .dropdown-content a {
 header .language-switcher .dropdown-content a:hover {
     background-color: var(--border-color) !important;
 }
+
+.share-buttons {
+    display: flex;
+    gap: 10px;
+}
