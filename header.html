@@ -1,6 +1,11 @@
 <header>
     <div class="header-left">
-        <h1><a href="/" data-lang-ko="온라인 도구모음" data-lang-en="Online Toolkit">온라인 도구모음</a></h1>
+        <h1>
+            <a href="/">
+                <img src="/mysite.png" alt="Site Icon" class="site-icon">
+                <span data-lang-ko="온라인 도구모음" data-lang-en="Online Toolkit">온라인 도구모음</span>
+            </a>
+        </h1>
     </div>
 
     <div class="header-center">
@@ -21,13 +26,19 @@
 
     <div class="header-right">
         <div class="share-buttons">
-            <button id="copy-link-btn" title="Copy page link"><i class="fas fa-link"></i></button>
-            <button id="sns-share-btn" title="Share on social media"><i class="fas fa-share-alt"></i></button>
+            <button id="copy-link-btn">
+                <i class="fas fa-link"></i>
+                <span data-lang-ko="링크 복사" data-lang-en="Copy Link">링크 복사</span>
+            </button>
+            <button id="sns-share-btn">
+                <i class="fas fa-share-alt"></i>
+                <span data-lang-ko="SNS 공유" data-lang-en="Share">SNS 공유</span>
+            </button>
         </div>
         <div class="dropdown language-switcher">
             <button class="dropbtn">
-                <span id="current-language-text"></span>
-                <i class="fas fa-globe"></i>
+                 <i class="fas fa-globe"></i>
+                <span id="current-language-text">한국어</span>
             </button>
             <div class="dropdown-content">
                 <a href="#" id="lang-ko">한국어</a>

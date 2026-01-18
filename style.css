@@ -23,24 +23,9 @@ body {
 }
 
 main .container {
-    max-width: 800px;
+    max-width: 960px;
     margin: 2rem auto;
     padding: 1rem;
-}
-
-.tool-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.tool-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-.tool-header p {
-    font-size: 1.1rem;
-    color: #64748b;
 }
 
 /* ================================== */
@@ -65,6 +50,14 @@ header {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.site-icon {
+    width: 32px;
+    height: 32px;
 }
 
 .header-center {
@@ -76,7 +69,58 @@ header {
 .header-right {
     display: flex;
     align-items: center;
+    gap: 1rem;
+}
+
+/* ================================== */
+/* Main Content (Service Cards)       */
+/* ================================== */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.service-card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+.tool-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tool-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.tool-header p {
+    font-size: 1.1rem;
+    color: #64748b;
 }
 
 /* ================================== */
@@ -94,6 +138,7 @@ header {
     cursor: pointer;
     color: var(--text-color);
     font-family: var(--font-family-sans);
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .dropdown .dropbtn i {
@@ -107,23 +152,24 @@ header {
 }
 
 .share-buttons button {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    font-family: var(--font-family-sans);
     color: var(--text-color);
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 .share-buttons button:hover {
     background-color: var(--background-color);
 }
+
 
 /* ================================== */
 /* Footer Layout                      */
