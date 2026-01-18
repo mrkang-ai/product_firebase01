@@ -4,6 +4,8 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight - document.querySelector('.header').offsetHeight;
 
+let gameState = 'notStarted'; // can be notStarted, playing, gameOver
+
 const player = {
     x: canvas.width / 2 - 25,
     y: canvas.height - 50,
@@ -14,11 +16,11 @@ const player = {
     dx: 0
 };
 
-const enemies = [];
+let enemies = [];
 const enemySpeed = 5;
 const enemySpawnRate = 20; // Lower is faster
 let frameCount = 0;
-let startTime = Date.now();
+let startTime;
 let elapsedTime = 0;
 
 function drawPlayer() {
@@ -73,47 +75,76 @@ function isCollision(rect1, rect2) {
 function checkCollisions() {
     enemies.forEach(enemy => {
         if (isCollision(player, enemy)) {
-            gameOver();
+            gameState = 'gameOver';
         }
     });
 }
 
 function drawTimer() {
-    elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    if (gameState === 'playing') {
+        elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    }
     ctx.font = '20px Arial';
     ctx.fillStyle = 'black';
     ctx.fillText(`Time: ${elapsedTime}`, 10, 30);
 }
 
-function gameOver() {
-    alert(`Game Over!\nYour time: ${elapsedTime} seconds`);
-    document.location.reload();
+function drawStartScreen() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '30px Arial';
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.fillText('Press Space to Start', canvas.width / 2, canvas.height / 2);
+}
+
+function resetGame() {
+    player.x = canvas.width / 2 - 25;
+    player.y = canvas.height - 50;
+    player.dx = 0;
+    enemies = [];
+    frameCount = 0;
+    elapsedTime = 0;
 }
 
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawPlayer();
-    movePlayer();
+    if (gameState === 'notStarted') {
+        drawStartScreen();
+    } else if (gameState === 'playing') {
+        drawPlayer();
+        movePlayer();
 
-    frameCount++;
-    if (frameCount % enemySpawnRate === 0) {
-        createEnemy();
+        frameCount++;
+        if (frameCount % enemySpawnRate === 0) {
+            createEnemy();
+        }
+        drawEnemies();
+        updateEnemies();
+
+        checkCollisions();
+    } else if (gameState === 'gameOver') {
+        alert(`Game Over!\nYour time: ${elapsedTime} seconds`);
+        resetGame();
+        document.location.reload();
     }
-    drawEnemies();
-    updateEnemies();
 
-    checkCollisions();
     drawTimer();
-
     requestAnimationFrame(update);
 }
 
 function keyDown(e) {
-    if (e.key === 'ArrowRight' || e.key === 'Right') {
-        player.dx = player.speed;
-    } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
-        player.dx = -player.speed;
+    if (e.code === 'Space' && gameState === 'notStarted') {
+        gameState = 'playing';
+        startTime = Date.now();
+    }
+    if (gameState === 'playing') {
+        if (e.key === 'ArrowRight' || e.key === 'Right') {
+            player.dx = player.speed;
+        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+            player.dx = -player.speed;
+        }
     }
 }
 
