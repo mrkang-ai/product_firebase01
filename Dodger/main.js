@@ -6,12 +6,20 @@ canvas.height = window.innerHeight - document.querySelector('.header').offsetHei
 
 let gameState = 'notStarted'; // can be notStarted, playing, gameOver
 
+// Image loading (replace with actual image loading)
+// const personImg = new Image();
+// personImg.src = 'images/person.png';
+// const carrotImg = new Image();
+// carrotImg.src = 'images/carrot.png';
+// const cloudImg = new Image();
+// cloudImg.src = 'images/cloud.png';
+
 const player = {
     x: canvas.width / 2 - 25,
     y: canvas.height - 50,
     width: 50,
     height: 50,
-    color: 'blue',
+    color: 'blue', // Placeholder color
     speed: 10,
     dx: 0
 };
@@ -19,11 +27,17 @@ const player = {
 let enemies = [];
 const enemySpeed = 5;
 const enemySpawnRate = 20; // Lower is faster
+
+let clouds = [];
+const cloudSpeed = 1;
+const cloudSpawnRate = 100;
+
 let frameCount = 0;
 let startTime;
 let elapsedTime = 0;
 
 function drawPlayer() {
+    // ctx.drawImage(personImg, player.x, player.y, player.width, player.height);
     ctx.fillStyle = player.color;
     ctx.fillRect(player.x, player.y, player.width, player.height);
 }
@@ -44,13 +58,14 @@ function createEnemy() {
     const x = Math.random() * (canvas.width - 30);
     const y = -30;
     const width = 30;
-    const height = 30;
-    const color = 'red';
+    const height = 40; // Carrot-like shape
+    const color = 'orange'; // Placeholder color
     enemies.push({ x, y, width, height, color });
 }
 
 function drawEnemies() {
     enemies.forEach(enemy => {
+        // ctx.drawImage(carrotImg, enemy.x, enemy.y, enemy.width, enemy.height);
         ctx.fillStyle = enemy.color;
         ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
     });
@@ -64,6 +79,33 @@ function updateEnemies() {
         }
     });
 }
+
+function createCloud() {
+    const x = canvas.width;
+    const y = Math.random() * (canvas.height / 2);
+    const width = 100 + Math.random() * 50;
+    const height = 40 + Math.random() * 20;
+    const color = '#f0f8ff'; // Light blueish white
+    clouds.push({ x, y, width, height, color });
+}
+
+function drawClouds() {
+    clouds.forEach(cloud => {
+        // ctx.drawImage(cloudImg, cloud.x, cloud.y, cloud.width, cloud.height);
+        ctx.fillStyle = cloud.color;
+        ctx.fillRect(cloud.x, cloud.y, cloud.width, cloud.height);
+    });
+}
+
+function updateClouds() {
+    clouds.forEach((cloud, index) => {
+        cloud.x -= cloudSpeed;
+        if (cloud.x + cloud.width < 0) {
+            clouds.splice(index, 1);
+        }
+    });
+}
+
 
 function isCollision(rect1, rect2) {
     return rect1.x < rect2.x + rect2.width &&
@@ -103,6 +145,7 @@ function resetGame() {
     player.y = canvas.height - 50;
     player.dx = 0;
     enemies = [];
+    clouds = [];
     frameCount = 0;
     elapsedTime = 0;
 }
@@ -110,9 +153,21 @@ function resetGame() {
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Draw background
+    ctx.fillStyle = '#87CEEB'; // Sky blue
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    drawClouds();
+
+
     if (gameState === 'notStarted') {
         drawStartScreen();
     } else if (gameState === 'playing') {
+        updateClouds();
+        if (frameCount % cloudSpawnRate === 0) {
+            createCloud();
+        }
+
         drawPlayer();
         movePlayer();
 
@@ -138,6 +193,7 @@ function keyDown(e) {
     if (e.code === 'Space' && gameState === 'notStarted') {
         gameState = 'playing';
         startTime = Date.now();
+        resetGame(); // Reset game elements before starting
     }
     if (gameState === 'playing') {
         if (e.key === 'ArrowRight' || e.key === 'Right') {
