@@ -8,16 +8,8 @@ const resultDescription = document.getElementById('result-description');
 
 // Function to get the correct image URL (prioritizing .webp)
 function getImageUrl(itemName) {
-    const webpPath = `images/${itemName}.webp`;
-    const jpgPath = `images/${itemName}.jpg`;
-    
-    // In a real scenario, you'd check if the .webp file exists on the server.
-    // For this context, we'll assume if it's "가츠동", use webp, otherwise jpg
-    // since the user specifically requested 가츠동.webp
-    if (itemName === "가츠동") {
-        return webpPath;
-    }
-    return jpgPath;
+    const webpPath = `eat/images/${itemName}.webp`;
+    return webpPath;
 }
 
 recommendBtn.addEventListener('click', () => {
