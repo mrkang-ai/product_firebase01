@@ -21,15 +21,18 @@ body {
 header {
     background: var(--card-background-color);
     color: var(--text-color);
-    padding: 2rem;
+    padding: 1rem 2rem;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
@@ -160,7 +163,6 @@ footer {
     background-color: #f1f1f1;
 }
 
-/* This class is added by JavaScript to show the dropdown */
 .show {
     display: block;
 }
@@ -187,7 +189,6 @@ header .nav-dropdown {
     left: 1rem;
 }
 
-/* Position the dropdown content correctly for the nav-dropdown */
 header .nav-dropdown .dropdown-content {
     left: 0;
     right: auto;
@@ -200,28 +201,21 @@ header .language-switcher {
 }
 
 header .share-buttons {
-    position: absolute;
-    top: 1rem;
-    right: 6rem; /* Adjusted to not overlap with language switcher */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 header .share-buttons button {
-    margin-left: 0.5rem;
-    padding: 10px 15px;
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    background-color: var(--card-background-color);
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.2s;
+    font-size: 1.2rem;
+    color: var(--text-color);
 }
 
-header .share-buttons button:hover {
-    background-color: #f1f1f1;
-}
-
-/* Responsive adjustments for header buttons */
 @media (max-width: 600px) {
     header .share-buttons {
-        display: none; /* Hide share buttons on small screens to avoid clutter */
+        display: none;
     }
 }
