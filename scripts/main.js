@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Function to fetch and insert HTML content
     const loadHTML = (url, elementId, callback) => {
         fetch(url)
             .then(response => response.text())
             .then(data => {
-                document.getElementById(elementId).innerHTML = data;
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.innerHTML = data;
+                }
                 if (callback) {
                     callback();
                 }
@@ -12,43 +14,40 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error(`Error loading ${url}:`, error));
     };
 
-    // Determine the base path
-    const path = window.location.pathname;
-    const isSubpage = path.includes('/eat/') || path.includes('/ladder/') || path.includes('/lotto/') || path.includes('/Rock-paper-scissors/') || path.includes('/TextCount/');
-    const basePath = isSubpage ? '../' : '';
-
-    // Load header and add event listeners for share buttons
-    loadHTML(`${basePath}header.html`, 'header-placeholder', () => {
-        // Dropdown functionality
+    const initializeDropdowns = () => {
         const dropdowns = document.querySelectorAll('.dropdown');
         dropdowns.forEach(dropdown => {
             const button = dropdown.querySelector('.dropbtn');
             const content = dropdown.querySelector('.dropdown-content');
 
-            button.addEventListener('click', (event) => {
-                event.stopPropagation();
-                // Close other dropdowns
-                dropdowns.forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.querySelector('.dropdown-content').classList.remove('show');
-                    }
-                });
-                content.classList.toggle('show');
-            });
-        });
+            if (button && content) {
+                // Reset any previous state
+                content.classList.remove('show');
 
-        // Close dropdowns if clicked outside
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                const openDropdowns = document.querySelectorAll('.dropdown-content');
-                openDropdowns.forEach(openDropdown => {
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
+                button.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    // Close other open dropdowns before opening a new one
+                    document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
+                        if (openDropdown !== content) {
+                            openDropdown.classList.remove('show');
+                        }
+                    });
+                    content.classList.toggle('show');
                 });
             }
-        }
+        });
 
+        // Close all dropdowns if clicked outside
+        window.onclick = (event) => {
+            if (!event.target.matches('.dropbtn')) {
+                document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
+                    openDropdown.classList.remove('show');
+                });
+            }
+        };
+    };
+
+    const setupShareButtons = () => {
         const copyLinkBtn = document.getElementById('copy-link-btn');
         if (copyLinkBtn) {
             copyLinkBtn.addEventListener('click', () => {
@@ -67,28 +66,32 @@ document.addEventListener("DOMContentLoaded", function() {
                         text: document.querySelector('meta[name="description"]').content,
                         url: window.location.href,
                     })
-                        .then(() => console.log('Successful share'))
-                        .catch((error) => console.log('Error sharing', error));
+                    .then(() => console.log('Successful share'))
+                    .catch((error) => console.log('Error sharing', error));
                 } else {
-                    console.log('Web Share API not supported.');
-                    // Fallback for desktop: open a popup with share links
-                    const socialMediaLinks = {
-                        facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`,
-                        twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(document.title)}`,
-                        linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}`,
-                    };
-                    const popup = window.open('', 'Share', 'height=400,width=600');
-                    popup.document.write('<html><head><title>Share</title></head><body>');
-                    popup.document.write('<h3>Share on:</h3>');
-                    for (const [key, value] of Object.entries(socialMediaLinks)) {
-                        popup.document.write(`<a href="${value}" target="_blank">${key}</a><br>`);
-                    }
-                    popup.document.write('</body></html>');
+                    alert('Web Share API is not supported in this browser.');
                 }
             });
         }
+    };
+
+    const path = window.location.pathname;
+    const isSubpage = path.includes('/eat/') || path.includes('/ladder/') || path.includes('/lotto/') || path.includes('/Rock-paper-scissors/') || path.includes('/TextCount/');
+    const basePath = isSubpage ? '../' : '';
+
+    loadHTML(`${basePath}header.html`, 'header-placeholder', () => {
+        initializeDropdowns();
+        setupShareButtons();
+        // After loading the header, also re-apply language settings to it
+        if (window.applyLanguage) {
+            window.applyLanguage();
+        }
     });
 
-    // Load footer
-    loadHTML(`${basePath}footer.html`, 'footer-placeholder');
+    loadHTML(`${basePath}footer.html`, 'footer-placeholder', () => {
+        // After loading the footer, also re-apply language settings to it
+        if (window.applyLanguage) {
+            window.applyLanguage();
+        }
+    });
 });
