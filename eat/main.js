@@ -8,7 +8,7 @@ const resultDescription = document.getElementById('result-description');
 
 // Function to get the correct image URL (prioritizing .webp)
 function getImageUrl(itemName) {
-    const webpPath = `eat/images/${itemName}.webp`;
+    const webpPath = `images/${itemName}.webp`;
     return webpPath;
 }
 
