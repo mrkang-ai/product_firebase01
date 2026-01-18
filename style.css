@@ -187,6 +187,12 @@ header .nav-dropdown {
     left: 1rem;
 }
 
+/* Position the dropdown content correctly for the nav-dropdown */
+header .nav-dropdown .dropdown-content {
+    left: 0;
+    right: auto;
+}
+
 header .language-switcher {
     position: absolute;
     top: 1rem;
