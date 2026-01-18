@@ -19,6 +19,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Load header and add event listeners for share buttons
     loadHTML(`${basePath}header.html`, 'header-placeholder', () => {
+        // Dropdown functionality
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const button = dropdown.querySelector('.dropbtn');
+            const content = dropdown.querySelector('.dropdown-content');
+
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+                // Close other dropdowns
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.querySelector('.dropdown-content').classList.remove('show');
+                    }
+                });
+                content.classList.toggle('show');
+            });
+        });
+
+        // Close dropdowns if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                const openDropdowns = document.querySelectorAll('.dropdown-content');
+                openDropdowns.forEach(openDropdown => {
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                });
+            }
+        }
+
         const copyLinkBtn = document.getElementById('copy-link-btn');
         if (copyLinkBtn) {
             copyLinkBtn.addEventListener('click', () => {
