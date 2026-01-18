@@ -1,8 +1,14 @@
 <header>
-    <h1><a href="/" data-lang-ko="온라인 도구모음" data-lang-en="Online Toolkit">온라인 도구모음</a></h1>
-    <div class="nav-dropdown">
-        <div class="dropdown">
-            <button class="dropbtn"><i class="fas fa-bars"></i></button>
+    <div class="header-left">
+        <h1><a href="/" data-lang-ko="온라인 도구모음" data-lang-en="Online Toolkit">온라인 도구모음</a></h1>
+    </div>
+
+    <div class="header-center">
+        <div class="dropdown nav-dropdown">
+            <button class="dropbtn">
+                <i class="fas fa-bars"></i>
+                <span id="current-service-name" data-lang-ko="메뉴" data-lang-en="Menu">메뉴</span>
+            </button>
             <div class="dropdown-content">
                 <a href="/lotto/" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</a>
                 <a href="/TextCount/" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</a>
@@ -12,17 +18,21 @@
             </div>
         </div>
     </div>
-    <div class="language-switcher">
-        <div class="dropdown">
-            <button class="dropbtn"><i class="fas fa-globe"></i></button>
+
+    <div class="header-right">
+        <div class="share-buttons">
+            <button id="copy-link-btn" title="Copy page link"><i class="fas fa-link"></i></button>
+            <button id="sns-share-btn" title="Share on social media"><i class="fas fa-share-alt"></i></button>
+        </div>
+        <div class="dropdown language-switcher">
+            <button class="dropbtn">
+                <span id="current-language-text"></span>
+                <i class="fas fa-globe"></i>
+            </button>
             <div class="dropdown-content">
                 <a href="#" id="lang-ko">한국어</a>
                 <a href="#" id="lang-en">English</a>
             </div>
         </div>
-    </div>
-    <div class="share-buttons">
-        <button id="copy-link-btn" data-lang-ko="🔗 페이지 공유" data-lang-en="🔗 Share Page">🔗 페이지 공유</button>
-        <button id="sns-share-btn" data-lang-ko="📱 SNS 공유" data-lang-en="📱 Share on SNS">📱 SNS 공유</button>
     </div>
 </header>

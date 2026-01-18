@@ -1,50 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const setLanguage = (lang) => {
-        document.documentElement.lang = lang;
+    const translations = {};
+    let currentLang = localStorage.getItem('language') || 'ko';
+
+    async function fetchTranslations() {
+        try {
+            const response = await fetch('/locales/translations.json');
+            const data = await response.json();
+            Object.assign(translations, data);
+            // Don't apply language here, main.js will do it after header load
+        } catch (error) {
+            console.error('Error fetching translations:', error);
+        }
+    }
+
+    function applyLanguage(lang, isInitialLoad = false) {
+        currentLang = lang;
         localStorage.setItem('language', lang);
-        updateText(lang);
-    };
+        document.documentElement.lang = lang;
 
-    const updateText = (lang) => {
-        document.querySelectorAll('[data-lang-ko]').forEach(el => {
-            el.textContent = el.getAttribute(`data-lang-${lang}`);
+        // Update all text content based on language
+        document.querySelectorAll('[data-lang-ko], [data-lang-en]').forEach(element => {
+            const text = element.getAttribute(`data-lang-${lang}`);
+            if (text) {
+                if (element.placeholder !== undefined) {
+                    element.placeholder = text;
+                } else if (element.id !== 'current-service-name' && element.id !== 'current-language-text') {
+                    // Avoid directly setting text for elements controlled by other functions
+                    element.textContent = text;
+                }
+            }
         });
-        const titleElement = document.querySelector('title');
-        if (titleElement) {
-            titleElement.textContent = titleElement.getAttribute(`data-lang-${lang}`);
-        }
-        const metaDescriptionElement = document.querySelector('meta[name="description"]');
-        if (metaDescriptionElement) {
-            metaDescriptionElement.setAttribute('content', metaDescriptionElement.getAttribute(`data-lang-${lang}`));
-        }
-        const ogTitleElement = document.querySelector('meta[property="og:title"]');
-        if (ogTitleElement) {
-            ogTitleElement.setAttribute('content', ogTitleElement.getAttribute(`data-lang-${lang}`));
-        }
-        const ogDescriptionElement = document.querySelector('meta[property="og:description"]');
-        if (ogDescriptionElement) {
-            ogDescriptionElement.setAttribute('content', ogDescriptionElement.getAttribute(`data-lang-${lang}`));
-        }
-        const twitterTitleElement = document.querySelector('meta[name="twitter:title"]');
-        if (twitterTitleElement) {
-            twitterTitleElement.setAttribute('content', twitterTitleElement.getAttribute(`data-lang-${lang}`));
-        }
-        const twitterDescriptionElement = document.querySelector('meta[name="twitter:description"]');
-        if (twitterDescriptionElement) {
-            twitterDescriptionElement.setAttribute('content', twitterDescriptionElement.getAttribute(`data-lang-${lang}`));
-        }
-    };
 
-    // Event listeners for dropdown links
-    document.getElementById('lang-ko').addEventListener('click', (e) => {
-        e.preventDefault();
-        setLanguage('ko');
-    });
-    document.getElementById('lang-en').addEventListener('click', (e) => {
-        e.preventDefault();
-        setLanguage('en');
-    });
+        // Update the current language display text
+        const currentLangTextElement = document.getElementById('current-language-text');
+        if (currentLangTextElement) {
+            currentLangTextElement.textContent = lang === 'ko' ? '한국어' : 'English';
+        }
 
-    const savedLang = localStorage.getItem('language') || 'ko';
-    setLanguage(savedLang);
+        // Update the service name in the header
+        if (window.updateCurrentServiceName) {
+            window.updateCurrentServiceName();
+        }
+        
+        // On initial load, this is handled by the main.js callback
+        if (!isInitialLoad) {
+             // Logic for subsequent language changes might be needed here
+        }
+    }
+
+    window.applyLanguage = applyLanguage;
+
+    fetchTranslations();
+
+    // Delegated event listener for language switchers
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.matches('#lang-ko')) {
+            event.preventDefault();
+            applyLanguage('ko');
+        } else if (target.matches('#lang-en')) {
+            event.preventDefault();
+            applyLanguage('en');
+        }
+    });
 });

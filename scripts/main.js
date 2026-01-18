@@ -21,25 +21,23 @@ document.addEventListener("DOMContentLoaded", function() {
             const content = dropdown.querySelector('.dropdown-content');
 
             if (button && content) {
-                // Reset any previous state
-                content.classList.remove('show');
-
                 button.addEventListener('click', (event) => {
                     event.stopPropagation();
-                    // Close other open dropdowns before opening a new one
+                    const isAlreadyOpen = content.classList.contains('show');
+                    // Close all dropdowns first
                     document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
-                        if (openDropdown !== content) {
-                            openDropdown.classList.remove('show');
-                        }
+                        openDropdown.classList.remove('show');
                     });
-                    content.classList.toggle('show');
+                    // If it wasn't already open, show it
+                    if (!isAlreadyOpen) {
+                        content.classList.add('show');
+                    }
                 });
             }
         });
 
-        // Close all dropdowns if clicked outside
         window.onclick = (event) => {
-            if (!event.target.matches('.dropbtn')) {
+            if (!event.target.closest('.dropdown')) {
                 document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
                     openDropdown.classList.remove('show');
                 });
@@ -75,23 +73,52 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
+    const updateCurrentServiceName = () => {
+        const serviceNameElement = document.getElementById('current-service-name');
+        if (!serviceNameElement) return;
+
+        const path = window.location.pathname;
+        const navDropdown = document.querySelector('.nav-dropdown');
+        if (!navDropdown) return;
+
+        const navLinks = navDropdown.querySelectorAll('.dropdown-content a');
+        let currentServiceLink = null;
+
+        navLinks.forEach(link => {
+            if (path.includes(link.getAttribute('href'))) {
+                currentServiceLink = link;
+            }
+        });
+
+        const lang = document.documentElement.lang || 'ko';
+        let serviceName;
+
+        if (currentServiceLink) {
+            serviceName = currentServiceLink.getAttribute(lang === 'en' ? 'data-lang-en' : 'data-lang-ko');
+        } else {
+            // Default to 'Menu' if on the main page
+            const menuButton = navDropdown.querySelector('.dropbtn span');
+            serviceName = menuButton.getAttribute(lang === 'en' ? 'data-lang-en' : 'data-lang-ko');
+        }
+        serviceNameElement.textContent = serviceName;
+    };
+    
+    // Expose the function to be called from language.js
+    window.updateCurrentServiceName = updateCurrentServiceName;
+
     const path = window.location.pathname;
-    const isSubpage = path.includes('/eat/') || path.includes('/ladder/') || path.includes('/lotto/') || path.includes('/Rock-paper-scissors/') || path.includes('/TextCount/');
-    const basePath = isSubpage ? '../' : '';
+    const basePath = path.includes('/lotto/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') ? '../' : '';
 
     loadHTML(`${basePath}header.html`, 'header-placeholder', () => {
         initializeDropdowns();
         setupShareButtons();
-        // After loading the header, also re-apply language settings to it
+        // Initial updates on page load
         if (window.applyLanguage) {
-            window.applyLanguage();
+            window.applyLanguage(localStorage.getItem('language') || 'ko', true);
+        } else {
+            updateCurrentServiceName();
         }
     });
 
-    loadHTML(`${basePath}footer.html`, 'footer-placeholder', () => {
-        // After loading the footer, also re-apply language settings to it
-        if (window.applyLanguage) {
-            window.applyLanguage();
-        }
-    });
+    loadHTML(`${basePath}footer.html`, 'footer-placeholder');
 });
