@@ -5,6 +5,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight - document.querySelector('.header').offsetHeight;
 
 let gameState = 'notStarted'; // can be notStarted, playing, gameOver
+let stop = false;
 
 // Image loading (replace with actual image loading)
 // const personImg = new Image();
@@ -151,6 +152,10 @@ function resetGame() {
 }
 
 function update() {
+    if (stop) {
+        return;
+    }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw background
@@ -180,9 +185,10 @@ function update() {
 
         checkCollisions();
     } else if (gameState === 'gameOver') {
+        stop = true;
         alert(`Game Over!\nYour time: ${elapsedTime} seconds`);
-        resetGame();
         document.location.reload();
+        return;
     }
 
     drawTimer();
