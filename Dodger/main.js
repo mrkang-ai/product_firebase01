@@ -7,20 +7,37 @@ canvas.height = window.innerHeight - document.querySelector('.header').offsetHei
 let gameState = 'notStarted'; // can be notStarted, playing, gameOver
 let stop = false;
 
-// Image loading (replace with actual image loading)
-// const personImg = new Image();
-// personImg.src = 'images/person.png';
-// const carrotImg = new Image();
-// carrotImg.src = 'images/carrot.png';
-// const cloudImg = new Image();
-// cloudImg.src = 'images/cloud.png';
+// Image loading
+const characterImg = new Image();
+characterImg.src = 'Dodger/images/character.png';
+const carrotImg = new Image();
+carrotImg.src = 'Dodger/images/carrot.png';
+const cloudLImg = new Image();
+cloudLImg.src = 'Dodger/images/cloud_l.png';
+const cloudSImg = new Image();
+cloudSImg.src = 'Dodger/images/cloud_s.png';
+
+let imagesLoaded = 0;
+const totalImages = 4;
+
+function imageLoaded() {
+    imagesLoaded++;
+    if (imagesLoaded === totalImages) {
+        update(); // Start the game loop after all images are loaded
+    }
+}
+
+characterImg.onload = imageLoaded;
+carrotImg.onload = imageLoaded;
+cloudLImg.onload = imageLoaded;
+cloudSImg.onload = imageLoaded;
+
 
 const player = {
-    x: canvas.width / 2 - 25,
-    y: canvas.height - 50,
-    width: 50,
-    height: 50,
-    color: 'blue', // Placeholder color
+    x: canvas.width / 2 - 20, // Adjusted width
+    y: canvas.height - 60, // Adjusted height
+    width: 40,
+    height: 60,
     speed: 10,
     dx: 0
 };
@@ -43,9 +60,7 @@ let elapsedTime = 0;
 let lastSpeedIncreaseTime = 0;
 
 function drawPlayer() {
-    // ctx.drawImage(personImg, player.x, player.y, player.width, player.height);
-    ctx.fillStyle = player.color;
-    ctx.fillRect(player.x, player.y, player.width, player.height);
+    ctx.drawImage(characterImg, player.x, player.y, player.width, player.height);
 }
 
 function movePlayer() {
@@ -62,18 +77,15 @@ function movePlayer() {
 
 function createEnemy() {
     const x = Math.random() * (canvas.width - 30);
-    const y = -30;
+    const y = -50; // Adjusted height for carrot
     const width = 30;
-    const height = 40; // Carrot-like shape
-    const color = 'orange'; // Placeholder color
-    enemies.push({ x, y, width, height, color });
+    const height = 50; // Carrot-like shape
+    enemies.push({ x, y, width, height });
 }
 
 function drawEnemies() {
     enemies.forEach(enemy => {
-        // ctx.drawImage(carrotImg, enemy.x, enemy.y, enemy.width, enemy.height);
-        ctx.fillStyle = enemy.color;
-        ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+        ctx.drawImage(carrotImg, enemy.x, enemy.y, enemy.width, enemy.height);
     });
 }
 
@@ -89,17 +101,16 @@ function updateEnemies() {
 function createCloud() {
     const x = canvas.width;
     const y = Math.random() * (canvas.height / 2);
-    const width = 100 + Math.random() * 50;
-    const height = 40 + Math.random() * 20;
-    const color = '#f0f8ff'; // Light blueish white
-    clouds.push({ x, y, width, height, color });
+    const isLarge = Math.random() > 0.5;
+    const img = isLarge ? cloudLImg : cloudSImg;
+    const width = isLarge ? 120 : 80;
+    const height = isLarge ? 70 : 50;
+    clouds.push({ x, y, width, height, img });
 }
 
 function drawClouds() {
     clouds.forEach(cloud => {
-        // ctx.drawImage(cloudImg, cloud.x, cloud.y, cloud.width, cloud.height);
-        ctx.fillStyle = cloud.color;
-        ctx.fillRect(cloud.x, cloud.y, cloud.width, cloud.height);
+        ctx.drawImage(cloud.img, cloud.x, cloud.y, cloud.width, cloud.height);
     });
 }
 
@@ -159,8 +170,8 @@ function drawStartScreen() {
 }
 
 function resetGame() {
-    player.x = canvas.width / 2 - 25;
-    player.y = canvas.height - 50;
+    player.x = canvas.width / 2 - 20; // Adjusted width
+    player.y = canvas.height - 60; // Adjusted height
     player.dx = 0;
     enemies = [];
     clouds = [];
@@ -245,4 +256,13 @@ function keyUp(e) {
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
-update();
+// Initial call to update to draw the start screen, will only start game loop after images are loaded
+// if (imagesLoaded === totalImages) {
+//     update();
+// } else {
+//     // Draw a loading screen or do nothing until images are loaded
+//     ctx.font = '30px Arial';
+//     ctx.fillStyle = 'black';
+//     ctx.textAlign = 'center';
+//     ctx.fillText('Loading images...', canvas.width / 2, canvas.height / 2);
+// }
