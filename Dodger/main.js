@@ -2,7 +2,7 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.height = window.innerHeight - document.querySelector('.header').offsetHeight;
 
 const player = {
     x: canvas.width / 2 - 25,
@@ -18,6 +18,8 @@ const enemies = [];
 const enemySpeed = 5;
 const enemySpawnRate = 20; // Lower is faster
 let frameCount = 0;
+let startTime = Date.now();
+let elapsedTime = 0;
 
 function drawPlayer() {
     ctx.fillStyle = player.color;
@@ -76,8 +78,15 @@ function checkCollisions() {
     });
 }
 
+function drawTimer() {
+    elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    ctx.font = '20px Arial';
+    ctx.fillStyle = 'black';
+    ctx.fillText(`Time: ${elapsedTime}`, 10, 30);
+}
+
 function gameOver() {
-    alert('Game Over!');
+    alert(`Game Over!\nYour time: ${elapsedTime} seconds`);
     document.location.reload();
 }
 
@@ -95,6 +104,7 @@ function update() {
     updateEnemies();
 
     checkCollisions();
+    drawTimer();
 
     requestAnimationFrame(update);
 }
