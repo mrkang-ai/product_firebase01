@@ -2,7 +2,15 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 canvas.width = document.body.clientWidth;
-canvas.height = window.innerHeight - document.querySelector('.header').offsetHeight;
+
+const header = document.querySelector('.header');
+const h1 = document.querySelector('h1');
+const h2 = document.querySelector('h2');
+const headerHeight = header ? header.offsetHeight : 0;
+const h1Height = h1 ? h1.offsetHeight : 0;
+const h2Height = h2 ? h2.offsetHeight : 0;
+const extraSpace = 40; // For margins and padding
+canvas.height = window.innerHeight - headerHeight - h1Height - h2Height - extraSpace;
 
 let gameState = 'notStarted'; // can be notStarted, playing, gameOver
 let stop = false;
