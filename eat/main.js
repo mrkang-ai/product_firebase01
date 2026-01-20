@@ -17,9 +17,11 @@ recommendBtn.addEventListener('click', () => {
     resultDiv.classList.add('hidden');
     loadingAnimation.classList.remove('hidden');
 
+    const lang = document.documentElement.lang || 'ko';
+
     let imageChangeInterval = setInterval(() => {
         const randomMenuItem = menuData[Math.floor(Math.random() * menuData.length)];
-        const imageUrl = getImageUrl(randomMenuItem.name);
+        const imageUrl = getImageUrl(randomMenuItem.name_ko); // Use Korean name for image
         imageSpinner.style.backgroundImage = `url('${imageUrl}')`;
     }, 100);
 
@@ -28,11 +30,16 @@ recommendBtn.addEventListener('click', () => {
         clearInterval(imageChangeInterval);
 
         const randomMenuItem = menuData[Math.floor(Math.random() * menuData.length)];
-        const imageUrl = getImageUrl(randomMenuItem.name);
+        const imageUrl = getImageUrl(randomMenuItem.name_ko); // Use Korean name for image
 
         resultImage.src = imageUrl;
-        resultName.textContent = randomMenuItem.name;
-        resultDescription.textContent = randomMenuItem.description;
+        if (lang === 'en') {
+            resultName.textContent = randomMenuItem.name_en;
+            resultDescription.textContent = randomMenuItem.description_en;
+        } else {
+            resultName.textContent = randomMenuItem.name_ko;
+            resultDescription.textContent = randomMenuItem.description_ko;
+        }
 
         loadingAnimation.classList.add('hidden');
         resultDiv.classList.remove('hidden');
