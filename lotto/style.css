@@ -9,13 +9,20 @@
     --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
+html {
+    background-color: var(--background-color);
+}
+
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    background-color: var(--background-color);
+    background-color: var(--card-background-color);
     color: var(--text-color);
+    max-width: 1200px;
+    min-height: 100vh;
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
 }
 
 a {
@@ -248,4 +255,11 @@ footer {
     margin: 0 0.5rem;
     font-size: 0.9rem;
     text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+    body {
+        max-width: 100%;
+        box-shadow: none;
+    }
 }

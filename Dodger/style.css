@@ -1,8 +1,15 @@
-body {
-    margin: 0;
-    overflow: hidden;
+html {
     background-color: #f0f0f0;
+}
+
+body {
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #fff;
     font-family: sans-serif;
+    max-width: 1200px;
+    min-height: 100vh;
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
 }
 
 .header {
@@ -24,12 +31,25 @@ body {
     text-decoration: underline;
 }
 
+h1, h2 {
+    text-align: center;
+    padding: 0 1rem; /* Add some padding */
+}
+
 .game-description {
     margin: 0;
     font-size: 1em;
 }
 
-
 canvas {
     display: block;
+    margin: 0 auto; /* Center the canvas */
+    max-width: 100%; /* Make it responsive */
+}
+
+@media (max-width: 1200px) {
+    body {
+        max-width: 100%;
+        box-shadow: none;
+    }
 }

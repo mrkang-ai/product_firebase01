@@ -1,7 +1,7 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
+canvas.width = document.body.clientWidth;
 canvas.height = window.innerHeight - document.querySelector('.header').offsetHeight;
 
 let gameState = 'notStarted'; // can be notStarted, playing, gameOver
