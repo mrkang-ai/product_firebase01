@@ -262,3 +262,54 @@ footer {
         box-shadow: none;
     }
 }
+
+@media (max-width: 768px) {
+    main .container {
+        padding: 0.5rem;
+        margin: 1rem auto;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    .tool-header h1 {
+        font-size: 2rem;
+    }
+
+    .lotto-ball {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+        margin: 0 0.1rem;
+    }
+
+    .win-numbers {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    
+    .generated-set {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .generated-set .numbers {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    .latest-win {
+        overflow-x: auto;
+    }
+
+    .latest-win table {
+        min-width: 600px;
+    }
+    
+    #generate-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1.2rem;
+    }
+}
