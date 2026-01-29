@@ -1,76 +1,85 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html class="light" lang="ko">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PSZX9X7B');</script>
-<!-- End Google Tag Manager -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "v2rmx3iqqv");
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6WTS1DYYQC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6WTS1DYYQC');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-lang-ko="오늘 뭐 먹지? - 온라인 도구모음" data-lang-en="What to Eat Today? - Online Toolkit">오늘 뭐 먹지? - 온라인 도구모음</title>
+    
+    <!-- SEO Meta Tags -->
     <meta name="description" data-lang-ko="오늘 점심, 저녁 메뉴가 고민될 때 버튼 하나로 메뉴를 추천받으세요. 다양한 음식 이미지와 함께 메뉴 선택의 어려움을 덜어드립니다." data-lang-en="When you're wondering what to have for lunch or dinner today, get a menu recommendation with the click of a button. We'll help you choose a menu with a variety of food images.">
     <link rel="canonical" href="https://tesla-tool.pages.dev/eat/index.html">
     <meta property="og:title" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">
     <meta property="og:description" data-lang-ko="버튼 하나로 오늘 먹을 메뉴를 추천받으세요." data-lang-en="Get a recommendation for today's menu with the click of a button.">
-    <meta property="og:image" content="https://tesla-tool.pages.dev/og-image-eat.jpg">
-    <meta property="og:url" content="https://tesla-tool.pages.dev/eat/index.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">
-    <meta name="twitter:description" data-lang-ko="버튼 하나로 오늘 먹을 메뉴를 추천받으세요." data-lang-en="Get a recommendation for today's menu with the click of a button.">
-    <meta name="twitter:image" content="https://tesla-tool.pages.dev/twitter-image-eat.jpg">
+    
+    <!-- Google Analytics & Other Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WTS1DYYQC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6WTS1DYYQC');
+    </script>
+    
+    <!-- New Design Scripts and Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
     <script src="data.js" defer></script>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe",
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                },
+            },
+        }
+    </script>
 </head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSZX9X7B"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
     <div id="header-placeholder"></div>
 
-    <main>
-        <div class="container">
-            <header class="tool-header">
-                <h1 data-lang-ko="🍲 오늘 뭐 먹지?" data-lang-en="🍲 What to Eat Today?">🍲 오늘 뭐 먹지?</h1>
-                <p data-lang-ko="버튼을 눌러 오늘 먹을 메뉴를 추천받으세요!" data-lang-en="Press the button to get a recommendation for today's menu!">버튼을 눌러 오늘 먹을 메뉴를 추천받으세요!</p>
+    <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1 items-center">
+            <header class="text-center py-10">
+                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="🍲 오늘 뭐 먹지?" data-lang-en="🍲 What to Eat Today?">🍲 오늘 뭐 먹지?</h1>
+                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="버튼을 눌러 오늘 먹을 메뉴를 추천받으세요!" data-lang-en="Press the button to get a recommendation for today's menu!">버튼을 눌러 오늘 먹을 메뉴를 추천받으세요!</p>
             </header>
 
-            <section class="menu-recommender">
-                <button id="recommend-btn" data-lang-ko="메뉴 추천해 줘!" data-lang-en="Recommend a Menu!">메뉴 추천해 줘!</button>
-                <div id="loading-animation" class="hidden">
-                    <p data-lang-ko="메뉴 탐색중..." data-lang-en="Searching for a menu...">메뉴 탐색중...</p>
-                    <div id="image-spinner"></div>
+            <section class="w-full max-w-md mx-auto text-center">
+                <button id="recommend-btn" class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-16 px-6 bg-primary text-white text-2xl font-bold leading-normal tracking-[0.015em] hover:bg-primary-hover shadow-lg shadow-sky-200 dark:shadow-none transition-all active:scale-95">
+                    <span data-lang-ko="메뉴 추천해 줘!" data-lang-en="Recommend a Menu!">메뉴 추천해 줘!</span>
+                </button>
+                
+                <div id="loading-animation" class="hidden mt-8">
+                    <p class="text-lg text-text-muted dark:text-slate-400" data-lang-ko="메뉴 탐색중..." data-lang-en="Searching for a menu...">메뉴 탐색중...</p>
+                    <div id="image-spinner" class="mt-4"></div>
                 </div>
-                <div id="result" class="hidden">
-                    <h2 data-lang-ko="추천 메뉴" data-lang-en="Recommended Menu">추천 메뉴</h2>
-                    <img id="result-image" src="" alt="추천 메뉴">
-                    <p id="result-name"></p>
-                    <p id="result-description"></p>
+
+                <div id="result" class="hidden mt-8 w-full bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-xl shadow-md">
+                    <h2 class="text-2xl font-bold text-text-main dark:text-white" data-lang-ko="추천 메뉴" data-lang-en="Recommended Menu">추천 메뉴</h2>
+                    <img id="result-image" src="" alt="추천 메뉴" class="mt-4 w-full h-64 object-cover rounded-lg shadow-inner">
+                    <p id="result-name" class="mt-4 text-3xl font-extrabold text-primary"></p>
+                    <p id="result-description" class="mt-2 text-md text-text-muted dark:text-slate-400"></p>
                 </div>
             </section>
-            
         </div>
     </main>
 

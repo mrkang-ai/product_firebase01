@@ -1,46 +1,85 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html class="light" lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>당근 피하기</title>
+
+    <!-- New Design Scripts and Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../agent-fixes.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe",
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                },
+            },
+        }
+    </script>
 </head>
-<body class="game-body">
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
     <div id="header-placeholder"></div>
-    <div class="game-container">
-        <div class="score-container" style="text-align: center; margin-bottom: 20px;">
-            <span data-lang-ko="시간" data-lang-en="Time">시간</span>: <span id="time">0</span>s | 
-            <span data-lang-ko="점수" data-lang-en="Score">점수</span>: <span id="score">0</span>
-        </div>
-        
-        <canvas id="gameCanvas"></canvas>
-        
-        <div class="game-info-container">
-            <div class="game-description">
-                <h2 data-lang-ko="게임 설명" data-lang-en="Game Rules">게임 설명</h2>
-                <p data-lang-ko="하늘에서 떨어지는 음식을 피하거나 획득하여 점수를 얻는 게임입니다." data-lang-en="It's a game where you score points by avoiding or acquiring food falling from the sky.">하늘에서 떨어지는 음식을 피하거나 획득하여 점수를 얻는 게임입니다.</p>
-                <ul>
-                    <li><img src="images/banana.png" alt="Banana"> <span data-lang-ko="바나나: +1점" data-lang-en="Banana: +1pt">바나나: +1점</span></li>
-                    <li><img src="images/bread.png" alt="Bread"> <span data-lang-ko="빵: +2점" data-lang-en="Bread: +2pts">빵: +2점</span></li>
-                    <li><img src="images/meat.png" alt="Meat"> <span data-lang-ko="고기: +5점" data-lang-en="Meat: +5pts">고기: +5점</span></li>
-                    <li><img src="images/cake.png" alt="Cake"> <span data-lang-ko="케이크: +10점" data-lang-en="Cake: +10pts">케이크: +10점</span></li>
-                    <li><img src="images/carrot.png" alt="Carrot"> <span data-lang-ko="당근: 게임 종료" data-lang-en="Carrot: Game Over">당근: 게임 종료</span></li>
-                </ul>
+
+    <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1 items-center">
+            <header class="text-center py-10">
+                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="🥕 당근 피하기" data-lang-en="🥕 Carrot Dodger">🥕 당근 피하기</h1>
+                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="하늘에서 떨어지는 음식을 피하거나 획득하여 점수를 얻는 게임입니다." data-lang-en="Score points by avoiding or acquiring food falling from the sky.">Score points by avoiding or acquiring food falling from the sky.</p>
+            </header>
+
+            <div class="w-full max-w-4xl mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-xl shadow-md text-center">
+                <div class="score-container mb-4 text-xl font-bold text-text-main dark:text-white">
+                    <span data-lang-ko="시간" data-lang-en="Time">시간</span>: <span id="time">0</span>s | 
+                    <span data-lang-ko="점수" data-lang-en="Score">점수</span>: <span id="score">0</span>
+                </div>
+                
+                <canvas id="gameCanvas" class="mx-auto bg-sky-50 dark:bg-sky-900/50 rounded-lg shadow-inner"></canvas>
+                
+                <div class="game-info-container mt-8 grid md:grid-cols-2 gap-8 text-left">
+                    <div class="game-description">
+                        <h2 class="text-2xl font-bold text-text-main dark:text-white" data-lang-ko="게임 설명" data-lang-en="Game Rules">게임 설명</h2>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-center gap-2"><img src="images/banana.png" alt="Banana" class="w-6 h-6"> <span data-lang-ko="바나나: +1점" data-lang-en="Banana: +1pt">바나나: +1점</span></li>
+                            <li class="flex items-center gap-2"><img src="images/bread.png" alt="Bread" class="w-6 h-6"> <span data-lang-ko="빵: +2점" data-lang-en="Bread: +2pts">빵: +2점</span></li>
+                            <li class="flex items-center gap-2"><img src="images/meat.png" alt="Meat" class="w-6 h-6"> <span data-lang-ko="고기: +5점" data-lang-en="Meat: +5pts">고기: +5점</span></li>
+                            <li class="flex items-center gap-2"><img src="images/cake.png" alt="Cake" class="w-6 h-6"> <span data-lang-ko="케이크: +10점" data-lang-en="Cake: +10pts">케이크: +10점</span></li>
+                            <li class="flex items-center gap-2"><img src="images/carrot.png" alt="Carrot" class="w-6 h-6"> <span data-lang-ko="당근: 게임 종료" data-lang-en="Carrot: Game Over">당근: 게임 종료</span></li>
+                        </ul>
+                    </div>
+                    <div class="ranking-container">
+                        <h2 class="text-2xl font-bold text-text-main dark:text-white" data-lang-ko="최고 기록" data-lang-en="High Scores">최고 기록</h2>
+                        <ol id="ranking-list" class="mt-4 list-decimal list-inside space-y-1 text-text-muted dark:text-slate-400">
+                            <!-- Rankings will be populated by JavaScript -->
+                        </ol>
+                    </div>
+                </div>
             </div>
-            <div class="ranking-container">
-                <h2 data-lang-ko="최고 기록" data-lang-en="High Scores">최고 기록</h2>
-                <ol id="ranking-list">
-                    <!-- Rankings will be populated by JavaScript -->
-                </ol>
-            </div>
         </div>
-    </div>
+    </main>
+    
     <div id="footer-placeholder"></div>
+
     <script src="../scripts/main.js" defer></script>
     <script src="../language.js" defer></script>
     <script src="main.js"></script>

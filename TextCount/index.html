@@ -1,97 +1,98 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html class="light" lang="ko">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PSZX9X7B');</script>
-<!-- End Google Tag Manager -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "v2rmx3iqqv");
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6WTS1DYYQC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6WTS1DYYQC');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-lang-ko="글자 수 세기 - 온라인 도구모음" data-lang-en="Character Counter - Online Toolkit">글자 수 세기 - 온라인 도구모음</title>
+    
+    <!-- SEO Meta Tags -->
     <meta name="description" data-lang-ko="온라인 글자 수 세기 도구로 텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 확인하세요. 보고서, 자기소개서 작성에 유용합니다." data-lang-en="Check the character, word, and line count of your text in real time with the online character counter tool. Useful for writing reports and cover letters.">
     <link rel="canonical" href="https://tesla-tool.pages.dev/TextCount/index.html">
     <meta property="og:title" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">
     <meta property="og:description" data-lang-ko="온라인 글자 수 세기 도구로 텍스트의 길이를 정밀하게 조절하세요." data-lang-en="Precisely control the length of your text with the online character counter tool.">
     <meta property="og:image" content="https://tesla-tool.pages.dev/og-image-textcount.jpg">
     <meta property="og:url" content="https://tesla-tool.pages.dev/TextCount/index.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">
-    <meta name="twitter:description" data-lang-ko="온라인 글자 수 세기 도구로 텍스트의 길이를 정밀하게 조절하세요." data-lang-en="Precisely control the length of your text with the online character counter tool.">
-    <meta name="twitter:image" content="https://tesla-tool.pages.dev/twitter-image-textcount.jpg">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7404223198169687"
-     crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics & Other Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WTS1DYYQC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6WTS1DYYQC');
+    </script>
+    
+    <!-- New Design Scripts and Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe",
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
 </head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSZX9X7B"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
     <div id="header-placeholder"></div>
 
-    <main>
-        <div class="container">
-            <header class="tool-header">
-                <h1 data-lang-ko="✍️ 글자 수 세기" data-lang-en="✍️ Character Counter">✍️ 글자 수 세기</h1>
-                <p data-lang-ko="텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 확인하세요." data-lang-en="Check the character, word, and line count of your text in real time.">텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 확인하세요.</p>
+    <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <header class="text-center py-10">
+                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="✍️ 글자 수 세기" data-lang-en="✍️ Character Counter">✍️ 글자 수 세기</h1>
+                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 확인하세요." data-lang-en="Check the character, word, and line count of your text in real time.">텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 확인하세요.</p>
             </header>
 
-            <!-- Google AdSense Slot -->
-            <section class="ad-slot">
-                <!-- 여기에 구글 애드센스 광고 코드를 삽입하세요. -->
-                <p>(광고 영역)</p>
-            </section>
-
-            <section class="text-counter">
-                <textarea id="text-input" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요..."></textarea>
-                <div class="result-box">
-                    <div class="result-item">
-                        <span class="label" data-lang-ko="공백 포함 글자 수" data-lang-en="Characters (including spaces)">공백 포함 글자 수</span>
-                        <span id="count-char-include-space" class="value">0</span>
+            <section class="w-full max-w-3xl mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-xl shadow-md">
+                <textarea id="text-input" class="w-full h-64 p-4 rounded-lg bg-background-light dark:bg-background-dark border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요..."></textarea>
+                
+                <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="bg-accent-light dark:bg-accent-dark p-4 rounded-lg">
+                        <span class="block text-sm text-text-muted dark:text-slate-400" data-lang-ko="공백 포함" data-lang-en="Characters (incl. spaces)">공백 포함</span>
+                        <span id="count-char-include-space" class="text-2xl font-bold text-text-main dark:text-white">0</span>
                     </div>
-                    <div class="result-item">
-                        <span class="label" data-lang-ko="공백 제외 글자 수" data-lang-en="Characters (excluding spaces)">공백 제외 글자 수</span>
-                        <span id="count-char-exclude-space" class="value">0</span>
+                    <div class="bg-accent-light dark:bg-accent-dark p-4 rounded-lg">
+                        <span class="block text-sm text-text-muted dark:text-slate-400" data-lang-ko="공백 제외" data-lang-en="Characters (excl. spaces)">공백 제외</span>
+                        <span id="count-char-exclude-space" class="text-2xl font-bold text-text-main dark:text-white">0</span>
                     </div>
-                    <div class="result-item">
-                        <span class="label" data-lang-ko="단어 수" data-lang-en="Word Count">단어 수</span>
-                        <span id="count-words" class="value">0</span>
+                    <div class="bg-accent-light dark:bg-accent-dark p-4 rounded-lg">
+                        <span class="block text-sm text-text-muted dark:text-slate-400" data-lang-ko="단어" data-lang-en="Words">단어</span>
+                        <span id="count-words" class="text-2xl font-bold text-text-main dark:text-white">0</span>
                     </div>
-                    <div class="result-item">
-                        <span class="label" data-lang-ko="줄 수" data-lang-en="Line Count">줄 수</span>
-                        <span id="count-lines" class="value">0</span>
+                    <div class="bg-accent-light dark:bg-accent-dark p-4 rounded-lg">
+                        <span class="block text-sm text-text-muted dark:text-slate-400" data-lang-ko="줄" data-lang-en="Lines">줄</span>
+                        <span id="count-lines" class="text-2xl font-bold text-text-main dark:text-white">0</span>
                     </div>
                 </div>
-                <button id="reset-btn" data-lang-ko="초기화" data-lang-en="Reset">초기화</button>
-            </section>
 
-            <section class="info">
-                <h2 data-lang-ko="글자 수 세기 도구 안내" data-lang-en="Character Counter Tool Guide">글자 수 세기 도구 안내</h2>
-                <p data-lang-ko="이 도구는 보고서 작성, 자기소개서 준비, SNS 게시물 작성 등 다양한 상황에서 텍스트의 길이를 정밀하게 조절해야 할 때 유용하게 사용될 수 있습니다. 단순히 글자 수를 세는 것뿐만 아니라, 단어와 줄 수까지 파악하여 보다 효율적인 글쓰기를 지원합니다." data-lang-en="This tool can be useful when you need to precisely control the length of your text in various situations, such as writing reports, preparing cover letters, or creating social media posts. It not only counts characters, but also helps you write more efficiently by identifying words and lines.">이 도구는 보고서 작성, 자기소개서 준비, SNS 게시물 작성 등 다양한 상황에서 텍스트의 길이를 정밀하게 조절해야 할 때 유용하게 사용될 수 있습니다. 단순히 글자 수를 세는 것뿐만 아니라, 단어와 줄 수까지 파악하여 보다 효율적인 글쓰기를 지원합니다.</p>
+                <button id="reset-btn" class="mt-6 w-full flex items-center justify-center rounded-lg h-11 px-6 bg-slate-200 dark:bg-slate-700 text-text-main dark:text-white text-md font-bold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+                    <span data-lang-ko="초기화" data-lang-en="Reset">초기화</span>
+                </button>
             </section>
-
         </div>
     </main>
 

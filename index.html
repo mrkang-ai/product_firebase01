@@ -1,135 +1,190 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html class="light" lang="ko">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PSZX9X7B');</script>
-<!-- End Google Tag Manager -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "v2rmx3iqqv");
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NL87MVDM35"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NL87MVDM35');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title data-lang-ko="온라인 도구모음 - 로또 번호 생성기, 글자 수 세기 등" data-lang-en="Online Toolkit - Lotto Number Generator, Character Counter, etc.">온라인 도구모음 - 로또 번호 생성기, 글자 수 세기 등</title>
+    
+    <!-- SEO Meta Tags -->
     <meta name="description" data-lang-ko="온라인 도구모음은 로또 번호 생성기, 글자 수 세기, 오늘 뭐 먹지?, 가위바위보, 사다리 게임 등 일상생활에 유용한 다양한 웹 도구를 제공합니다." data-lang-en="Online Toolkit provides a variety of useful web tools for everyday life, such as a Lotto Number Generator, Character Counter, What to Eat Today?, Rock-Paper-Scissors, and Ladder Game.">
     <link rel="canonical" href="https://tesla-tool.pages.dev/index.html">
     <meta property="og:title" data-lang-ko="온라인 도구모음" data-lang-en="Online Toolkit">
-    <meta property="og:description" data-lang-ko="일상생활에 유용한 간단한 웹 도구들을 제공합니다." data-lang-en="Provides simple web tools useful for everyday life.">
+    <meta property="og:description" data-lang-ko="일상생활에 유용한 간단한 웹 도구들을 제공합니다." data-lang-en="Provides simple web tools for everyday life.">
     <meta property="og:image" content="https://tesla-tool.pages.dev/og-image.jpg">
     <meta property="og:url" content="https://tesla-tool.pages.dev/index.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" data-lang-ko="온라인 도구모음" data-lang-en="Online Toolkit">
-    <meta name="twitter:description" data-lang-ko="일상생활에 유용한 간단한 웹 도구들을 제공합니다." data-lang-en="Provides simple web tools useful for everyday life.">
+    <meta name="twitter:description" data-lang-ko="일상생활에 유용한 간단한 웹 도구들을 제공합니다." data-lang-en="Provides simple web tools for everyday life.">
     <meta name="twitter:image" content="https://tesla-tool.pages.dev/twitter-image.jpg">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7404223198169687"
-     crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics & Other Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NL87MVDM35"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NL87MVDM35');
+    </script>
+
+    <!-- New Design Scripts and Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9", // Sky blue/Cyan shade
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff", // Very light blue-grey/white
+                        "background-dark": "#0f172a", // Dark slate blue for dark mode
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe", // Light sky blue for backgrounds
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
 </head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSZX9X7B"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
     <div id="header-placeholder"></div>
-    <main class="container">
-        <h1 class="main-title" data-lang-ko="온라인 도구모음" data-lang-en="Online Toolkit">온라인 도구모음</h1>
-        <div class="service-grid">
-            <a href="/lotto/" class="service-card">
-                <h2 data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</h2>
-                <p data-lang-ko="행운의 번호를 생성하고 최신 당첨 정보를 확인하세요." data-lang-en="Generate lucky numbers and check the latest winning information.">행운의 번호를 생성하고 최신 당첨 정보를 확인하세요.</p>
-            </a>
-            <a href="/TextCount/" class="service-card">
-                <h2 data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</h2>
-                <p data-lang-ko="문서의 글자 수, 단어 수를 간편하게 확인하세요." data-lang-en="Easily check the character and word count of your documents.">문서의 글자 수, 단어 수를 간편하게 확인하세요.</p>
-            </a>
-            <a href="/eat/" class="service-card">
-                <h2 data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">오늘 뭐 먹지?</h2>
-                <p data-lang-ko="오늘 먹을 메뉴를 추천받으세요." data-lang-en="Get recommendations for today's menu.">오늘 먹을 메뉴를 추천받으세요.</p>
-            </a>
-            <a href="/Rock-paper-scissors/" class="service-card">
-                <h2 data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">가위바위보 게임</h2>
-                <p data-lang-ko="컴퓨터와 가위바위보 대결을 해보세요." data-lang-en="Play rock-paper-scissors against the computer.">컴퓨터와 가위바위보 대결을 해보세요.</p>
-            </a>
-            <a href="/ladder/" class="service-card">
-                <h2 data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</h2>
-                <p data-lang-ko="친구들과 함께 사다리 게임을 즐겨보세요." data-lang-en="Enjoy a ladder game with your friends.">친구들과 함께 사다리 게임을 즐겨보세요.</p>
-            </a>
-            <a href="/carrot-dodger/" class="service-card">
-                <h2 data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">당근 피하기</h2>
-                <p data-lang-ko="떨어지는 당근을 피하고, 맛있는 음식을 획득하세요!" data-lang-en="Avoid the falling carrots and get delicious food!">떨어지는 당근을 피하고, 맛있는 음식을 획득하세요!</p>
-            </a>
+
+    <main class="layout-container flex h-full grow flex-col">
+        <!-- Hero Section -->
+        <div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                <div class="@container">
+                    <div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row items-center">
+                        <div class="w-full @[864px]:w-1/2 flex flex-col gap-6 @[480px]:gap-8 justify-center">
+                            <div class="flex flex-col gap-2 text-left">
+                                <h1 class="text-text-main dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl" data-lang-ko="당신의 일상을 위한 디지털 툴킷" data-lang-en="Your Daily Digital Toolkit">
+                                    Your Daily Digital Toolkit
+                                </h1>
+                                <h2 class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal @[480px]:text-base" data-lang-ko="작은 일상 업무를 위한 큰 도구들. 당신의 하루를 더 쉽게 만들어 줄 유용하고 재미있는 위젯 컬렉션을 탐색해 보세요." data-lang-en="Small tools for big tasks. Explore our collection of fun and functional widgets designed to make your day easier.">
+                                    Small tools for big tasks. Explore our collection of fun and functional widgets designed to make your day easier.
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="w-full @[864px]:w-1/2 flex justify-center @[864px]:justify-end">
+                            <div class="w-full aspect-square max-w-[400px] bg-center bg-no-repeat bg-cover rounded-xl shadow-xl shadow-sky-100 dark:shadow-none" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDSFMierFOei345l4BA7dOZn6EUXpOI3b9Zui8Mx1CxEuQc5SazxKPgKZlu2_g_-bX_nroBq9o9PAS4aIUD2U4_aKN2kBzGCtymHopDk9Kh6zAWPACo0f5Ad-MrsdjmWS6jIyAeu2PvWALTYzH5AacqrSZA2gbLEqLRfOh3bcUL8hOJBI6UaMuLHXhuCb09EbPVAy45ltgos8rog-vKXk78k8_Ts-GKXAkbn-tijtYNRLnfuwfWgbL1mohQBfGAv-h22MVsBFgxNpd5");'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <section class="intro">
-            <h2 data-lang-ko="About Us" data-lang-en="About Us">About Us</h2>
-            <p data-lang-ko="저희 온라인 도구모음 사이트는 복잡한 설치 과정 없이 누구나 웹 브라우저만으로 쉽게 사용할 수 있는 다양한 편의 기능을 제공하는 것을 목표로 합니다. 첫 번째 도구인 로또 번호 생성기를 시작으로, 앞으로 더욱 다양하고 편리한 도구들을 추가해 나갈 예정입니다. 많은 이용 부탁드립니다." data-lang-en="Our Online Toolkit site aims to provide a variety of convenient features that anyone can easily use with just a web browser, without any complicated installation process. Starting with our first tool, the Lotto Number Generator, we plan to add more diverse and convenient tools in the future. We hope you'll use it a lot.">저희 온라인 도구모음 사이트는 복잡한 설치 과정 없이 누구나 웹 브라우저만으로 쉽게 사용할 수 있는 다양한 편의 기능을 제공하는 것을 목표로 합니다. 첫 번째 도구인 로또 번호 생성기를 시작으로, 앞으로 더욱 다양하고 편리한 도구들을 추가해 나갈 예정입니다. 많은 이용 부탁드립니다.</p>
-            <p data-lang-ko="본 사이트는 광고 수익으로 운영될 수 있으며, 구글 애드센스 정책을 준수합니다." data-lang-en="This site may be operated with advertising revenue and complies with Google AdSense policies.">본 사이트는 광고 수익으로 운영될 수 있으며, 구글 애드센스 정책을 준수합니다.</p>
-        </section>
-        <section class="faq">
-            <h2 data-lang-ko="자주 묻는 질문" data-lang-en="Frequently Asked Questions">자주 묻는 질문</h2>
-            <div class="faq-item">
-                <h3 data-lang-ko="온라인 도구모음은 어떤 사이트인가요?" data-lang-en="What is Online Toolkit?">온라인 도구모음은 어떤 사이트인가요?</h3>
-                <p data-lang-ko="온라인 도구모음은 일상생활에 유용한 간단한 웹 도구들을 모아 제공하는 사이트입니다. 회원가입이나 설치 없이 누구나 무료로 이용할 수 있습니다." data-lang-en="Online Toolkit is a site that provides a collection of simple web tools useful for everyday life. Anyone can use it for free without registration or installation.">온라인 도구모음은 일상생활에 유용한 간단한 웹 도구들을 모아 제공하는 사이트입니다. 회원가입이나 설치 없이 누구나 무료로 이용할 수 있습니다.</p>
+        <!-- Tools Section -->
+        <div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                <h2 class="text-text-main dark:text-white tracking-tight text-[28px] font-bold leading-tight px-4 text-left pb-6 pt-2" data-lang-ko="모든 도구" data-lang-en="All Tools">All Tools</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
+                    
+                    <!-- Lotto Generator -->
+                    <a href="/lotto/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="w-10 h-10 rounded-full bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center text-primary mb-1"><span class="material-symbols-outlined">casino</span></div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">Lotto Number Generator</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="행운의 번호를 생성하고 최신 당첨 정보를 확인하세요." data-lang-en="Generate lucky numbers and check the latest winning information.">Generate lucky numbers and check the latest winning information.</p>
+                            </div>
+                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
+                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Character Counter -->
+                    <a href="/TextCount/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="w-10 h-10 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center text-cyan-600 mb-1"><span class="material-symbols-outlined">description</span></div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">Character Counter</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="문서의 글자 수, 단어 수를 간편하게 확인하세요." data-lang-en="Easily check the character and word count of your documents.">Easily check the character and word count of your documents.</p>
+                            </div>
+                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
+                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- What to Eat Today? -->
+                    <a href="/eat/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 mb-1"><span class="material-symbols-outlined">restaurant</span></div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">What to Eat Today?</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="오늘 먹을 메뉴를 추천받으세요." data-lang-en="Get recommendations for today's menu.">Get recommendations for today's menu.</p>
+                            </div>
+                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
+                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Rock-Paper-Scissors -->
+                    <a href="/Rock-paper-scissors/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 mb-1"><span class="material-symbols-outlined">sports_esports</span></div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">Rock-Paper-Scissors Game</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="컴퓨터와 가위바위보 대결을 해보세요." data-lang-en="Play rock-paper-scissors against the computer.">Play rock-paper-scissors against the computer.</p>
+                            </div>
+                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
+                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Ladder Game -->
+                    <a href="/ladder/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center text-pink-500 mb-1"><span class="material-symbols-outlined">turn_sharp_right</span></div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">Ladder Game</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="친구들과 함께 사다리 게임을 즐겨보세요." data-lang-en="Enjoy a ladder game with your friends.">Enjoy a ladder game with your friends.</p>
+                            </div>
+                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
+                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Carrot Dodger -->
+                    <a href="/carrot-dodger/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center text-slate-600 mb-1"><span class="material-symbols-outlined">videogame_asset</span></div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">Carrot Dodger</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="떨어지는 당근을 피하고, 맛있는 음식을 획득하세요!" data-lang-en="Avoid the falling carrots and get delicious food!">Avoid the falling carrots and get delicious food!</p>
+                            </div>
+                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
+                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="faq-item">
-                <h3 data-lang-ko="어떤 도구들이 있나요?" data-lang-en="What tools are available?">어떤 도구들이 있나요?</h3>
-                <p data-lang-ko="현재 로또 번호 생성기, 글자 수 세기, 오늘 뭐 먹지?, 가위바위보, 사다리 게임 등의 도구를 제공하고 있으며, 앞으로 더 다양한 도구들을 추가할 예정입니다." data-lang-en="We currently offer tools such as a Lotto Number Generator, Character Counter, What to Eat Today?, Rock-Paper-Scissors, and Ladder Game, and we plan to add more diverse and convenient tools in the future.">현재 로또 번호 생성기, 글자 수 세기, 오늘 뭐 먹지?, 가위바위보, 사다리 게임 등의 도구를 제공하고 있으며, 앞으로 더 다양한 도구들을 추가할 예정입니다.</p>
-            </div>
-        </section>
+        </div>
     </main>
-        <div id="footer-placeholder"></div>
-        <script src="scripts/main.js" defer></script>
-        <script src="language.js" defer></script>
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "url": "https://tesla-tool.pages.dev/",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://tesla-tool.pages.dev/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        }
-        </script>
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [{
-            "@type": "Question",
-            "name": "온라인 도구모음은 어떤 사이트인가요?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "온라인 도구모음은 일상생활에 유용한 간단한 웹 도구들을 모아 제공하는 사이트입니다. 회원가입이나 설치 없이 누구나 무료로 이용할 수 있습니다."
-            }
-          },{
-            "@type": "Question",
-            "name": "어떤 도구들이 있나요?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "현재 로또 번호 생성기, 글자 수 세기, 오늘 뭐 먹지?, 가위바위보, 사다리 게임 등의 도구를 제공하고 있으며, 앞으로 더 다양한 도구들을 추가할 예정입니다."
-            }
-          }]
-        }
-        </script>
-    </body>
-    </html>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script src="scripts/main.js" defer></script>
+    <script src="language.js" defer></script>
+</body>
+</html>

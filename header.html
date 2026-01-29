@@ -1,44 +1,46 @@
-<header>
-    <div class="header-left">
-        <h1>
-            <a href="/">
-                <img src="/mysite.png" alt="Site Icon" class="site-icon">
-            </a>
-        </h1>
-    </div>
-
-    <div class="header-center">
-        <div class="dropdown nav-dropdown">
-            <button class="dropbtn">
-                <i class="fas fa-bars"></i>
-                <span id="current-service-name" data-lang-ko="메뉴" data-lang-en="Menu">메뉴</span>
-            </button>
-            <div class="dropdown-content">
-                <a href="/lotto/" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</a>
-                <a href="/TextCount/" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</a>
-                <a href="/eat/" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">오늘 뭐 먹지?</a>
-                <a href="/Rock-paper-scissors/" data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">가위바위보 게임</a>
-                <a href="/ladder/" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</a>
-                <a href="/Dodger/" data-lang-ko="Dodger 게임" data-lang-en="Dodger Game">Dodger 게임</a>
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-4 md:px-10 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="flex items-center gap-4 md:gap-8">
+        <a href="/" class="flex items-center gap-4 text-text-main dark:text-white cursor-pointer">
+            <div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white shadow-md shadow-sky-200 dark:shadow-none">
+                <span class="material-symbols-outlined">construction</span>
             </div>
+            <h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">ToolBox</h2>
+        </a>
+        <div class="hidden md:flex items-center gap-9">
+            <div class="dropdown nav-dropdown">
+                <button class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors dropbtn" data-lang-ko="도구" data-lang-en="Tools">도구</button>
+                <div class="dropdown-content">
+                    <a href="/lotto/" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</a>
+                    <a href="/TextCount/" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</a>
+                </div>
+            </div>
+            <div class="dropdown nav-dropdown">
+                <button class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors dropbtn" data-lang-ko="게임" data-lang-en="Games">게임</button>
+                <div class="dropdown-content">
+                    <a href="/eat/" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">오늘 뭐 먹지?</a>
+                    <a href="/Rock-paper-scissors/" data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">가위바위보 게임</a>
+                    <a href="/ladder/" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</a>
+                    <a href="/carrot-dodger/" data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">당근 피하기</a>
+                </div>
+            </div>
+             <a class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="/about.html" data-lang-ko="소개" data-lang-en="About">소개</a>
         </div>
     </div>
-
-    <div class="header-right">
+    <div class="flex flex-1 justify-end gap-4 md:gap-8">
         <div class="share-buttons">
-            <button id="copy-link-btn">
-                <i class="fas fa-link"></i>
-                <span data-lang-ko="링크 복사" data-lang-en="Copy Link">링크 복사</span>
+            <button id="copy-link-btn" class="flex items-center gap-2 text-text-muted dark:text-slate-400 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">link</span>
+                <span class="hidden sm:inline" data-lang-ko="링크 복사" data-lang-en="Copy Link">링크 복사</span>
             </button>
-            <button id="sns-share-btn">
-                <i class="fas fa-share-alt"></i>
-                <span data-lang-ko="SNS 공유" data-lang-en="Share">SNS 공유</span>
+            <button id="sns-share-btn" class="flex items-center gap-2 text-text-muted dark:text-slate-400 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">share</span>
+                <span class="hidden sm:inline" data-lang-ko="SNS 공유" data-lang-en="Share">공유</span>
             </button>
         </div>
         <div class="dropdown language-switcher">
-            <button class="dropbtn">
-                 <i class="fas fa-globe"></i>
-                <span id="current-language-text">한국어</span>
+            <button class="dropbtn flex items-center gap-2 text-text-muted dark:text-slate-400 hover:text-primary transition-colors">
+                 <span class="material-symbols-outlined">language</span>
+                <span id="current-language-text" class="hidden sm:inline">한국어</span>
             </button>
             <div class="dropdown-content">
                 <a href="#" id="lang-ko">한국어</a>

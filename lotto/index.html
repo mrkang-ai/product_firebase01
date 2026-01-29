@@ -1,32 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html class="light" lang="ko">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PSZX9X7B');</script>
-<!-- End Google Tag Manager -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "v2rmx3iqqv");
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6WTS1DYYQC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6WTS1DYYQC');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-lang-ko="로또 번호 생성기 - 온라인 도구모음" data-lang-en="Lotto Number Generator - Online Toolkit">로또 번호 생성기 - 온라인 도구모음</title>
+
+    <!-- SEO Meta Tags -->
     <meta name="description" data-lang-ko="온라인 로또 번호 생성기로 행운의 번호를 받아보세요. 최신 당첨 정보와 로또에 대한 모든 것을 확인할 수 있습니다." data-lang-en="Get your lucky numbers with the online lotto number generator. You can check the latest winning information and everything about the lottery.">
     <link rel="canonical" href="https://tesla-tool.pages.dev/lotto/index.html">
     <meta property="og:title" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">
@@ -37,132 +16,135 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="twitter:title" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">
     <meta name="twitter:description" data-lang-ko="온라인 로또 번호 생성기로 행운의 번호를 받아보세요." data-lang-en="Get your lucky numbers with the online lotto number generator.">
     <meta name="twitter:image" content="https://tesla-tool.pages.dev/twitter-image-lotto.jpg">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7404223198169687"
-     crossorigin="anonymous"></script>
+
+    <!-- Google Analytics & Other Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WTS1DYYQC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6WTS1DYYQC');
+    </script>
+    
+    <!-- New Design Scripts and Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9", // Sky blue/Cyan shade
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff", // Very light blue-grey/white
+                        "background-dark": "#0f172a", // Dark slate blue for dark mode
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe", // Light sky blue for backgrounds
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
 </head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSZX9X7B"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
     <div id="header-placeholder"></div>
 
-    <main>
-        <div class="container">
-            <header class="tool-header">
-                <h1 data-lang-ko="🍀 로또 번호 생성기" data-lang-en="🍀 Lotto Number Generator">🍀 로또 번호 생성기</h1>
-                <p data-lang-ko="행운의 번호를 생성하고 로또에 대한 모든 것을 알아보세요." data-lang-en="Generate lucky numbers and learn all about the lottery.">행운의 번호를 생성하고 로또에 대한 모든 것을 알아보세요.</p>
-                <a href="https://www.dhlottery.co.kr/lt645/result" target="_blank" class="btn-external" data-lang-ko="동행복권 당첨조회 바로가기 🔗" data-lang-en="Go to Donghang Lottery Winning Check 🔗">동행복권 당첨조회 바로가기 🔗</a>
+    <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <header class="text-center py-10">
+                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="🍀 로또 번호 생성기" data-lang-en="🍀 Lotto Number Generator">🍀 로또 번호 생성기</h1>
+                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="행운의 번호를 생성하고 로또에 대한 모든 것을 알아보세요." data-lang-en="Generate lucky numbers and learn all about the lottery.">행운의 번호를 생성하고 로또에 대한 모든 것을 알아보세요.</p>
+                <a href="https://www.dhlottery.co.kr/lt645/result" target="_blank" class="mt-4 inline-block text-primary hover:text-primary-hover transition-colors" data-lang-ko="동행복권 당첨조회 바로가기 🔗" data-lang-en="Go to Donghang Lottery Winning Check 🔗">동행복권 당첨조회 바로가기 🔗</a>
             </header>
 
-            <section class="generator">
-                <h2 data-lang-ko="🎰 행운의 번호 생성기" data-lang-en="🎰 Lucky Number Generator">🎰 행운의 번호 생성기</h2>
-                <button id="generate-btn" data-lang-ko="🍀 번호 생성하기 🍀" data-lang-en="🍀 Generate Numbers 🍀">🍀 번호 생성하기 🍀</button>
-                <div id="generated-numbers-container">
+            <section class="w-full max-w-2xl mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-center text-text-main dark:text-white mb-6" data-lang-ko="🎰 행운의 번호 생성기" data-lang-en="🎰 Lucky Number Generator">🎰 행운의 번호 생성기</h2>
+                <button id="generate-btn" class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-lg font-bold leading-normal tracking-[0.015em] hover:bg-primary-hover shadow-lg shadow-sky-200 dark:shadow-none transition-all active:scale-95">
+                    <span data-lang-ko="🍀 번호 생성하기 🍀" data-lang-en="🍀 Generate Numbers 🍀">🍀 번호 생성하기 🍀</span>
+                </button>
+                <div id="generated-numbers-container" class="mt-6">
                     <!-- 생성된 번호가 여기에 추가됩니다. -->
                 </div>
             </section>
 
-            <!-- Google AdSense Slot -->
-            <section class="ad-slot">
-                <!-- 여기에 구글 애드센스 광고 코드를 삽입하세요. -->
-                <p>(광고 영역)</p>
-            </section>
-
-            <section class="latest-win">
-                <h2 data-lang-ko="📢 최신 로또 당첨 정보" data-lang-en="📢 Latest Lotto Winning Information">📢 최신 로또 당첨 정보</h2>
-                <div class="win-details">
-                    <p><strong data-lang-ko="제 1208회차" data-lang-en="Round 1208">제 1208회차</strong> (<span data-lang-ko="2026년 01월 24일 추첨" data-lang-en="Drawing on January 24, 2026">2026년 01월 24일 추첨</span>)</p>
-                    <div class="win-numbers">
-                        <div class="lotto-group">
-                            <div class="lotto-balls">
-                                <span class="lotto-ball ball-yellow">6</span>
-                                <span class="lotto-ball ball-red">27</span>
-                                <span class="lotto-ball ball-red">30</span>
-                                <span class="lotto-ball ball-grey">36</span>
-                                <span class="lotto-ball ball-grey">38</span>
-                                <span class="lotto-ball ball-green">42</span>
-                            </div>
-                            <div class="lotto-label" data-lang-ko="당첨번호" data-lang-en="Winning Numbers">당첨번호</div>
+            <section class="w-full max-w-4xl mx-auto mt-12">
+                <h2 class="text-2xl font-bold text-center text-text-main dark:text-white mb-6" data-lang-ko="📢 최신 로또 당첨 정보" data-lang-en="📢 Latest Lotto Winning Information">📢 최신 로또 당첨 정보</h2>
+                <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-xl shadow-md">
+                    <p class="text-center font-semibold text-text-main dark:text-white"><strong data-lang-ko="제 1208회차" data-lang-en="Round 1208">제 1208회차</strong> (<span data-lang-ko="2026년 01월 24일 추첨" data-lang-en="Drawing on January 24, 2026">2026년 01월 24일 추첨</span>)</p>
+                    <div class="flex items-center justify-center my-4">
+                        <div class="flex items-center gap-2">
+                            <span class="lotto-ball ball-yellow">6</span>
+                            <span class="lotto-ball ball-red">27</span>
+                            <span class="lotto-ball ball-red">30</span>
+                            <span class="lotto-ball ball-grey">36</span>
+                            <span class="lotto-ball ball-grey">38</span>
+                            <span class="lotto-ball ball-green">42</span>
                         </div>
-                        <div class="bonus-plus">+</div>
-                        <div class="lotto-group">
-                            <div class="lotto-balls">
-                                <span class="lotto-ball ball-red">25</span>
-                            </div>
-                            <div class="lotto-label" data-lang-ko="보너스 번호" data-lang-en="Bonus Number">보너스 번호</div>
+                        <div class="mx-4 text-2xl font-light text-text-muted dark:text-slate-400">+</div>
+                        <div class="flex items-center gap-2">
+                            <span class="lotto-ball ball-red">25</span>
                         </div>
-                    </div>                    
-                    <h3 data-lang-ko="- 등위별 당첨금액" data-lang-en="- Winnings by Rank">- 등위별 당첨금액</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th data-lang-ko="등위" data-lang-en="Rank">등위</th>
-                                <th data-lang-ko="총 당첨금액" data-lang-en="Total Winnings">총 당첨금액</th>
-                                <th data-lang-ko="당첨게임 수" data-lang-en="Number of Winning Games">당첨게임 수</th>
-                                <th data-lang-ko="1게임당 당첨금액" data-lang-en="Winnings per Game">1게임당 당첨금액</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-lang-ko="1등" data-lang-en="1st Place">1등</td>
-                                <td>30,010,281,750<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                                <td>6</td>
-                                <td>5,001,713,625<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                            </tr>
-                            <tr>
-                                <td data-lang-ko="2등" data-lang-en="2nd Place">2등</td>
-                                <td>5,001,713,684<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                                <td>68</td>
-                                <td>73,554,613<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                            </tr>
-                            <tr>
-                                <td data-lang-ko="3등" data-lang-en="3rd Place">3등</td>
-                                <td>5,001,716,392<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                                <td>2,932</td>
-                                <td>1,705,906<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                            </tr>
-                            <tr>
-                                <td data-lang-ko="4등" data-lang-en="4th Place">4등</td>
-                                <td>7,467,950,000<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                                <td>149,359</td>
-                                <td>50,000<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                            </tr>
-                            <tr>
-                                <td data-lang-ko="5등" data-lang-en="5th Place">5등</td>
-                                <td>12,722,675,000<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                                <td>2,544,535</td>
-                                <td>5,000<span data-lang-ko="원" data-lang-en="KRW">원</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    </div>
+                    <div class="overflow-x-auto mt-4">
+                        <table class="min-w-full text-sm text-left text-text-muted dark:text-slate-400">
+                            <thead class="bg-accent-light dark:bg-accent-dark text-xs uppercase">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 rounded-l-lg" data-lang-ko="등위" data-lang-en="Rank">등위</th>
+                                    <th scope="col" class="px-6 py-3" data-lang-ko="총 당첨금액" data-lang-en="Total Winnings">총 당첨금액</th>
+                                    <th scope="col" class="px-6 py-3" data-lang-ko="당첨게임 수" data-lang-en="Number of Winning Games">당첨게임 수</th>
+                                    <th scope="col" class="px-6 py-3 rounded-r-lg" data-lang-ko="1게임당 당첨금액" data-lang-en="Winnings per Game">1게임당 당첨금액</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-card-bg-light dark:bg-card-bg-dark border-b border-slate-200 dark:border-slate-700">
+                                    <td class="px-6 py-4">1등</td>
+                                    <td>30,010,281,750원</td>
+                                    <td>6</td>
+                                    <td>5,001,713,625원</td>
+                                </tr>
+                                <tr class="bg-card-bg-light dark:bg-card-bg-dark border-b border-slate-200 dark:border-slate-700">
+                                    <td class="px-6 py-4">2등</td>
+                                    <td>5,001,713,684원</td>
+                                    <td>68</td>
+                                    <td>73,554,613원</td>
+                                </tr>
+                                <tr class="bg-card-bg-light dark:bg-card-bg-dark border-b border-slate-200 dark:border-slate-700">
+                                    <td class="px-6 py-4">3등</td>
+                                    <td>5,001,716,392원</td>
+                                    <td>2,932</td>
+                                    <td>1,705,906원</td>
+                                </tr>
+                                <tr class="bg-card-bg-light dark:bg-card-bg-dark border-b border-slate-200 dark:border-slate-700">
+                                    <td class="px-6 py-4">4등</td>
+                                    <td>7,467,950,000원</td>
+                                    <td>149,359</td>
+                                    <td>50,000원</td>
+                                </tr>
+                                <tr class="bg-card-bg-light dark:bg-card-bg-dark">
+                                    <td class="px-6 py-4">5등</td>
+                                    <td>12,722,675,000원</td>
+                                    <td>2,544,535</td>
+                                    <td>5,000원</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </section>
-
-            <!-- Google AdSense Slot -->
-            <section class="ad-slot">
-                <!-- 여기에 구글 애드센스 광고 코드를 삽입하세요. -->
-                <p>(광고 영역)</p>
-            </section>
-
-            <section class="lotto-info">
-                <h2 data-lang-ko="📚 로또 이야기" data-lang-en="📚 All About Lotto">📚 로또 이야기</h2>
-                <article>
-                    <h3 data-lang-ko="로또의 역사와 규모" data-lang-en="History and Scale of Lotto">로또의 역사와 규모</h4>
-                    <p data-lang-ko="대한민국의 로또는 2002년 12월 '나눔로또'라는 이름으로 시작되었습니다. 45개의 숫자 중 6개를 맞추는 방식으로, 국민들의 큰 관심을 받으며 대표적인 복권으로 자리 잡았습니다. 판매액의 일부는 복권기금으로 조성되어 공익사업에 사용됩니다." data-lang-en="South Korea's lottery began in December 2002 under the name 'Nanum Lotto'. It is a method of matching 6 out of 45 numbers, and has become a representative lottery with great public interest. A portion of the sales is used to create a lottery fund, which is used for public service projects.">대한민국의 로또는 2002년 12월 '나눔로또'라는 이름으로 시작되었습니다. 45개의 숫자 중 6개를 맞추는 방식으로, 국민들의 큰 관심을 받으며 대표적인 복권으로 자리 잡았습니다. 판매액의 일부는 복권기금으로 조성되어 공익사업에 사용됩니다.</p>
-                </article>
-                <article>
-                    <h3 data-lang-ko="역대 최고 당첨금" data-lang-en="Highest Winnings Ever">역대 최고 당첨금</h4>
-                    <p><strong>- <span data-lang-ko="제 19회차 (2003년 4월 12일):" data-lang-en="Round 19 (April 12, 2003):">제 19회차 (2003년 4월 12일):</span></strong> <span data-lang-ko="1등 당첨금 약" data-lang-en="1st place prize money approx.">1등 당첨금 약</span> <strong>407<span data-lang-ko="억원" data-lang-en="billion KRW">억원</span></strong> (<span data-lang-ko="당첨자 1명" data-lang-en="1 winner">당첨자 1명</span>). <span data-lang-ko="이는 현재까지 깨지지 않는 역대 최고 기록입니다." data-lang-en="This is the highest record ever, which has not been broken to this day.">이는 현재까지 깨지지 않는 역대 최고 기록입니다.</span></p>
-                </article>
-                <article>
-                    <h3 data-lang-ko="역대 최저 당첨금" data-lang-en="Lowest Winnings Ever">역대 최저 당첨금</h4>
-                    <p><strong>- <span data-lang-ko="제 546회차 (2013년 5月 18일):" data-lang-en="Round 546 (May 18, 2013):">제 546회차 (2013년 5月 18일):</span></strong> <span data-lang-ko="1등 당첨금 약" data-lang-en="1st place prize money approx.">1등 당첨금 약</span> <strong>4<span data-lang-ko="억" data-lang-en="hundred million">억</span> 5<span data-lang-ko="백만원" data-lang-en="million KRW">백만원</span></strong> (<span data-lang-ko="당첨자 30명" data-lang-en="30 winners">당첨자 30명</span>). <span data-lang-ko="이례적으로 많은 당첨자가 나오면서 1인당 당첨금이 크게 낮아졌습니다." data-lang-en="Unusually, many winners emerged, which significantly lowered the prize money per person.">이례적으로 많은 당첨자가 나오면서 1인당 당첨금이 크게 낮아졌습니다.</span></p>
-                </article>
             </section>
         </div>
     </main>
