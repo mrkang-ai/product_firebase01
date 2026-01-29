@@ -3,14 +3,14 @@ const ctx = canvas.getContext('2d');
 
 canvas.width = document.body.clientWidth;
 
-const header = document.querySelector('.header');
+const header = document.querySelector('header');
 const h1 = document.querySelector('h1');
-const h2 = document.querySelector('h2');
+const gameInfo = document.querySelector('.game-info-container');
 const headerHeight = header ? header.offsetHeight : 0;
 const h1Height = h1 ? h1.offsetHeight : 0;
-const h2Height = h2 ? h2.offsetHeight : 0;
+const gameInfoHeight = gameInfo ? gameInfo.offsetHeight : 0;
 const extraSpace = 40; // For margins and padding
-canvas.height = window.innerHeight - headerHeight - h1Height - h2Height - extraSpace;
+canvas.height = window.innerHeight - headerHeight - h1Height - gameInfoHeight - extraSpace;
 
 let gameState = 'notStarted'; // can be notStarted, playing, gameOver
 let stop = false;
@@ -20,13 +20,21 @@ const characterImg = new Image();
 characterImg.src = 'images/character.png';
 const carrotImg = new Image();
 carrotImg.src = 'images/carrot.png';
+const bananaImg = new Image();
+bananaImg.src = 'images/banana.png';
+const breadImg = new Image();
+breadImg.src = 'images/bread.png';
+const cakeImg = new Image();
+cakeImg.src = 'images/cake.png';
+const meatImg = new Image();
+meatImg.src = 'images/meat.png';
 const cloudLImg = new Image();
 cloudLImg.src = 'images/cloud_l.png';
 const cloudSImg = new Image();
 cloudSImg.src = 'images/cloud_s.png';
 
 let imagesLoaded = 0;
-const totalImages = 4;
+const totalImages = 8;
 
 function imageLoaded() {
     imagesLoaded++;
@@ -37,35 +45,48 @@ function imageLoaded() {
 
 characterImg.onload = imageLoaded;
 carrotImg.onload = imageLoaded;
+bananaImg.onload = imageLoaded;
+breadImg.onload = imageLoaded;
+cakeImg.onload = imageLoaded;
+meatImg.onload = imageLoaded;
 cloudLImg.onload = imageLoaded;
 cloudSImg.onload = imageLoaded;
 
 
 const player = {
-    x: canvas.width / 2 - 20, // Adjusted width
-    y: canvas.height - 60, // Adjusted height
+    x: canvas.width / 2 - 20,
+    y: canvas.height - 60,
     width: 40,
     height: 60,
     speed: 10,
     dx: 0
 };
 
-let enemies = [];
-const INITIAL_ENEMY_SPEED = 5;
-const MAX_ENEMY_SPEED = INITIAL_ENEMY_SPEED * 5;
-const SPEED_INCREASE_INTERVAL = 5; // seconds
+let items = [];
+const INITIAL_ITEM_SPEED = 3;
+const MAX_ITEM_SPEED = INITIAL_ITEM_SPEED * 3;
+const SPEED_INCREASE_INTERVAL = 10; // seconds
 const SPEED_INCREASE_PERCENTAGE = 0.10; // 10%
-let enemySpeed = INITIAL_ENEMY_SPEED;
-const enemySpawnRate = 20; // Lower is faster
+let itemSpeed = INITIAL_ITEM_SPEED;
+const itemSpawnRate = 30; // Lower is faster
 
 let clouds = [];
 const cloudSpeed = 1;
 const cloudSpawnRate = 100;
 
 let frameCount = 0;
+let score = 0;
 let startTime;
 let elapsedTime = 0;
 let lastSpeedIncreaseTime = 0;
+
+const foodTypes = [
+    { type: 'banana', img: bananaImg, width: 30, height: 30, points: 1 },
+    { type: 'bread', img: breadImg, width: 40, height: 40, points: 2 },
+    { type: 'meat', img: meatImg, width: 50, height: 50, points: 5 },
+    { type: 'cake', img: cakeImg, width: 60, height: 60, points: 10 }
+];
+const carrotType = { type: 'carrot', img: carrotImg, width: 30, height: 50, points: 'gameover' };
 
 function drawPlayer() {
     ctx.drawImage(characterImg, player.x, player.y, player.width, player.height);
@@ -74,7 +95,6 @@ function drawPlayer() {
 function movePlayer() {
     player.x += player.dx;
 
-    // Wall detection
     if (player.x < 0) {
         player.x = 0;
     }
@@ -83,25 +103,33 @@ function movePlayer() {
     }
 }
 
-function createEnemy() {
-    const x = Math.random() * (canvas.width - 30);
-    const y = -50; // Adjusted height for carrot
-    const width = 30;
-    const height = 50; // Carrot-like shape
-    enemies.push({ x, y, width, height });
+function createItem() {
+    const x = Math.random() * (canvas.width - 60);
+    const y = -60;
+    let item;
+
+    // 20% chance of being a carrot
+    if (Math.random() < 0.2) {
+        item = { ...carrotType };
+    } else {
+        item = { ...foodTypes[Math.floor(Math.random() * foodTypes.length)] };
+    }
+    item.x = x;
+    item.y = y;
+    items.push(item);
 }
 
-function drawEnemies() {
-    enemies.forEach(enemy => {
-        ctx.drawImage(carrotImg, enemy.x, enemy.y, enemy.width, enemy.height);
+function drawItems() {
+    items.forEach(item => {
+        ctx.drawImage(item.img, item.x, item.y, item.width, item.height);
     });
 }
 
-function updateEnemies() {
-    enemies.forEach((enemy, index) => {
-        enemy.y += enemySpeed;
-        if (enemy.y > canvas.height) {
-            enemies.splice(index, 1);
+function updateItems() {
+    items.forEach((item, index) => {
+        item.y += itemSpeed;
+        if (item.y > canvas.height) {
+            items.splice(index, 1);
         }
     });
 }
@@ -140,9 +168,14 @@ function isCollision(rect1, rect2) {
 }
 
 function checkCollisions() {
-    enemies.forEach(enemy => {
-        if (isCollision(player, enemy)) {
-            gameState = 'gameOver';
+    items.forEach((item, index) => {
+        if (isCollision(player, item)) {
+            if (item.points === 'gameover') {
+                gameState = 'gameOver';
+            } else {
+                score += item.points;
+                items.splice(index, 1);
+            }
         }
     });
 }
@@ -150,22 +183,19 @@ function checkCollisions() {
 function updateGameSpeed() {
     if (elapsedTime > lastSpeedIncreaseTime + SPEED_INCREASE_INTERVAL) {
         lastSpeedIncreaseTime = elapsedTime;
-        if (enemySpeed < MAX_ENEMY_SPEED) {
-            enemySpeed *= (1 + SPEED_INCREASE_PERCENTAGE);
-            if (enemySpeed > MAX_ENEMY_SPEED) {
-                enemySpeed = MAX_ENEMY_SPEED;
+        if (itemSpeed < MAX_ITEM_SPEED) {
+            itemSpeed *= (1 + SPEED_INCREASE_PERCENTAGE);
+            if (itemSpeed > MAX_ITEM_SPEED) {
+                itemSpeed = MAX_ITEM_SPEED;
             }
         }
     }
 }
 
-function drawTimer() {
-    if (gameState === 'playing') {
-        elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-    }
-    ctx.font = '20px Arial';
+function drawScore() {
+    ctx.font = '24px Arial';
     ctx.fillStyle = 'black';
-    ctx.fillText(`Time: ${elapsedTime}`, 10, 30);
+    ctx.fillText(`Score: ${score}`, 10, 30);
 }
 
 function drawStartScreen() {
@@ -178,16 +208,37 @@ function drawStartScreen() {
 }
 
 function resetGame() {
-    player.x = canvas.width / 2 - 20; // Adjusted width
-    player.y = canvas.height - 60; // Adjusted height
+    player.x = canvas.width / 2 - 20;
+    player.y = canvas.height - 60;
     player.dx = 0;
-    enemies = [];
+    items = [];
     clouds = [];
     frameCount = 0;
+    score = 0;
     elapsedTime = 0;
-    enemySpeed = INITIAL_ENEMY_SPEED;
+    itemSpeed = INITIAL_ITEM_SPEED;
     lastSpeedIncreaseTime = 0;
 }
+
+function saveRanking(name, score) {
+    let rankings = JSON.parse(localStorage.getItem('carrotDodgerRanking')) || [];
+    rankings.push({ name, score });
+    rankings.sort((a, b) => b.score - a.score);
+    rankings = rankings.slice(0, 10); // Top 10
+    localStorage.setItem('carrotDodgerRanking', JSON.stringify(rankings));
+}
+
+function displayRanking() {
+    const rankingList = document.getElementById('ranking-list');
+    rankingList.innerHTML = '';
+    let rankings = JSON.parse(localStorage.getItem('carrotDodgerRanking')) || [];
+    rankings.forEach((entry, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${index + 1}. ${entry.name}: ${entry.score}`;
+        rankingList.appendChild(li);
+    });
+}
+
 
 function update() {
     if (stop) {
@@ -196,8 +247,7 @@ function update() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw background
-    ctx.fillStyle = '#87CEEB'; // Sky blue
+    ctx.fillStyle = '#87CEEB';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawClouds();
@@ -217,21 +267,25 @@ function update() {
         movePlayer();
 
         frameCount++;
-        if (frameCount % enemySpawnRate === 0) {
-            createEnemy();
+        if (frameCount % itemSpawnRate === 0) {
+            createItem();
         }
-        drawEnemies();
-        updateEnemies();
+        drawItems();
+        updateItems();
 
         checkCollisions();
     } else if (gameState === 'gameOver') {
         stop = true;
-        alert(`Game Over!\nYour time: ${elapsedTime} seconds`);
+        const name = prompt(`Game Over!\nYour score: ${score}\nEnter your name for the ranking:`);
+        if (name) {
+            saveRanking(name, score);
+        }
+        displayRanking();
         document.location.reload();
         return;
     }
 
-    drawTimer();
+    drawScore();
     requestAnimationFrame(update);
 }
 
@@ -239,7 +293,7 @@ function keyDown(e) {
     if (e.code === 'Space' && gameState === 'notStarted') {
         gameState = 'playing';
         startTime = Date.now();
-        resetGame(); // Reset game elements before starting
+        resetGame();
     }
     if (gameState === 'playing') {
         if (e.key === 'ArrowRight' || e.key === 'Right') {
@@ -261,5 +315,6 @@ function keyUp(e) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', displayRanking);
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);

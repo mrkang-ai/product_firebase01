@@ -1,0 +1,100 @@
+html {
+    background-color: #fff;
+}
+
+body {
+    margin: 0 auto;
+    background-color: #fff;
+    font-family: sans-serif;
+    max-width: 1200px;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+h1, h2 {
+    text-align: center;
+    padding: 0 1rem; /* Add some padding */
+}
+
+.game-info-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.game-description, .ranking-container {
+    width: 45%;
+}
+
+.game-description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.game-description li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.game-description img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.ranking-container h2 {
+    margin-top: 0;
+}
+
+.ranking-container ol {
+    padding-left: 20px;
+}
+
+#ranking-list li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1em;
+}
+
+
+canvas {
+    display: block;
+    margin: 0 auto; /* Center the canvas */
+    max-width: 100%; /* Make it responsive */
+}
+
+@media (max-width: 1200px) {
+    body {
+        max-width: 100%;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-description, .ranking-container {
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+}
