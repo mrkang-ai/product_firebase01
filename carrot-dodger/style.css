@@ -37,6 +37,7 @@ body.game-body {
     justify-content: space-between;
     gap: 2rem;
     padding: 1rem 0;
+    margin-top: 1rem;
 }
 
 .game-description, .ranking-container {

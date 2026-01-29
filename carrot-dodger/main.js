@@ -9,19 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let stop = false;
     let animationFrameId;
 
-    // --- Canvas and Sizing ---
     function resizeCanvas() {
         const gameContainer = document.querySelector('.game-container');
         canvas.width = gameContainer.offsetWidth;
-
-        // A rough estimation of the height of elements above the canvas
-        const otherElementsHeight = 250; // Adjust this value as needed
         const availableHeight = window.innerHeight - document.getElementById('header-placeholder').offsetHeight;
-        
-        canvas.height = Math.min(600, availableHeight - otherElementsHeight); // Set a max height
+        canvas.height = Math.min(600, availableHeight - 250); 
     }
 
-    // --- Image Loading ---
     const images = {
         character: 'images/character.png',
         carrot: 'images/carrot.png',
@@ -50,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loadedImages[key].onload = imageLoaded;
     }
 
-    // --- Game Objects and State ---
     const player = {
         width: 40,
         height: 60,
@@ -62,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let items = [];
     const INITIAL_ITEM_SPEED = 2.5;
-    const MAX_ITEM_SPEED = 7;
-    const SPEED_INCREASE_INTERVAL = 10; // seconds
-    const SPEED_INCREASE_PERCENTAGE = 0.10;
+    const MAX_ITEM_SPEED = INITIAL_ITEM_SPEED * 5; // Max speed is 5x initial
+    const SPEED_INCREASE_INTERVAL = 5; // seconds
+    const SPEED_INCREASE_PERCENTAGE = 0.20; // 20%
     let itemSpeed = INITIAL_ITEM_SPEED;
-    let itemSpawnRate = 35; // Lower is faster
+    let itemSpawnRate = 35;
 
     let clouds = [];
     const cloudSpeed = 0.5;
@@ -79,14 +72,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastSpeedIncreaseTime = 0;
 
     const foodTypes = [
-        { type: 'banana', img: loadedImages.banana, width: 30, height: 30, points: 1 },
-        { type: 'bread', img: loadedImages.bread, width: 40, height: 30, points: 2 },
-        { type: 'meat', img: loadedImages.meat, width: 50, height: 40, points: 5 },
-        { type: 'cake', img: loadedImages.cake, width: 45, height: 45, points: 10 }
+        { type: 'banana', img: loadedImages.banana, width: 30, height: 30, points: 1, weight: 40 },
+        { type: 'bread', img: loadedImages.bread, width: 40, height: 30, points: 2, weight: 30 },
+        { type: 'meat', img: loadedImages.meat, width: 50, height: 40, points: 5, weight: 15 },
+        { type: 'cake', img: loadedImages.cake, width: 45, height: 45, points: 10, weight: 5 }
     ];
     const carrotType = { type: 'carrot', img: loadedImages.carrot, width: 30, height: 50, points: 'gameover' };
+    
+    const totalFoodWeight = foodTypes.reduce((sum, food) => sum + food.weight, 0);
 
-    // --- Game Logic ---
+
     function resetGame() {
         player.x = canvas.width / 2 - player.width / 2;
         player.y = canvas.height - player.height - 10;
@@ -117,12 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
         stop = true;
         cancelAnimationFrame(animationFrameId);
         
-        setTimeout(() => { // Delay to allow final frame to draw
+        setTimeout(() => {
             const rankings = getRankings();
             const isHighScore = rankings.length < 10 || score > rankings[rankings.length - 1].score;
             
             if (isHighScore) {
-                const name = prompt(`New High Score! ${score}pts\nEnter your name:`);
+                const name = prompt(`최고 기록 달성! ${score}점\n랭킹에 등록할 이름을 입력하세요:`);
                 if (name) {
                     saveRanking(name, score);
                     displayRanking();
@@ -132,14 +127,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
-    // --- Drawing Functions ---
     function drawPlayer() {
         ctx.drawImage(loadedImages.character, player.x, player.y, player.width, player.height);
     }
 
     function drawItems() {
         items.forEach(item => {
-            ctx.drawImage(item.img, item.x, item.y, item.width, item.height);
+            if (item.type === 'carrot') {
+                ctx.save();
+                ctx.shadowColor = 'green';
+                ctx.shadowBlur = 10;
+                ctx.strokeStyle = 'lightgreen';
+                ctx.lineWidth = 4;
+                ctx.strokeRect(item.x, item.y, item.width, item.height);
+                ctx.drawImage(item.img, item.x, item.y, item.width, item.height);
+                ctx.restore();
+            } else {
+                ctx.drawImage(item.img, item.x, item.y, item.width, item.height);
+            }
         });
     }
     
@@ -172,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fillText('Press Space to Play Again', canvas.width / 2, canvas.height / 2 + 60);
     }
 
-    // --- Update Functions ---
     function updateUI() {
         scoreEl.textContent = score;
         timeEl.textContent = elapsedTime;
@@ -184,9 +188,29 @@ document.addEventListener('DOMContentLoaded', () => {
         if (player.x + player.width > canvas.width) player.x = canvas.width - player.width;
     }
 
+    function getWeightedRandomFood() {
+        let random = Math.random() * totalFoodWeight;
+        for(const food of foodTypes) {
+            if (random < food.weight) {
+                return food;
+            }
+            random -= food.weight;
+        }
+    }
+
     function createItem() {
         const x = Math.random() * (canvas.width - 60) + 10;
-        const itemProto = Math.random() < 0.25 ? carrotType : foodTypes[Math.floor(Math.random() * foodTypes.length)];
+        // Carrot appears roughly 33% of the time, food 66%
+        // And carrot is 2x more likely than all food items.
+        const isCarrot = Math.random() < 0.5;
+
+        let itemProto;
+        if (isCarrot) {
+            itemProto = carrotType;
+        } else {
+            itemProto = getWeightedRandomFood();
+        }
+        
         items.push({ ...itemProto, x, y: -itemProto.height });
     }
 
@@ -243,14 +267,13 @@ document.addEventListener('DOMContentLoaded', () => {
             lastSpeedIncreaseTime = Math.floor(elapsedTime);
             if (itemSpeed < MAX_ITEM_SPEED) {
                 itemSpeed *= (1 + SPEED_INCREASE_PERCENTAGE);
-            }
-             if(itemSpawnRate > 15) { // Prevent it from becoming too fast
-                itemSpawnRate -= 2;
+                 if (itemSpeed > MAX_ITEM_SPEED) {
+                    itemSpeed = MAX_ITEM_SPEED;
+                }
             }
         }
     }
 
-    // --- Ranking ---
     function getRankings() {
         return JSON.parse(localStorage.getItem('carrotDodgerRanking')) || [];
     }
@@ -277,41 +300,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Main Game Loop ---
     function update() {
         if (stop) return;
 
-        // Clear canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // Update timers
         elapsedTime = Math.floor((Date.now() - startTime) / 1000);
         updateUI();
 
-        // Update and draw clouds
         if (frameCount % cloudSpawnRate === 0) createCloud();
         updateClouds();
         drawClouds();
         
-        // Update game objects
         updateGameSpeed();
         movePlayer();
         
         if (frameCount % itemSpawnRate === 0) createItem();
         updateItems();
         
-        // Draw game objects
         drawPlayer();
         drawItems();
         
-        // Check for game end condition
         checkCollisions();
 
         frameCount++;
         animationFrameId = requestAnimationFrame(update);
     }
     
-    // --- Event Handlers ---
     function keyDown(e) {
         if (e.code === 'Space') {
             e.preventDefault();
@@ -331,19 +346,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // --- Initialization ---
     function initGame() {
         resizeCanvas();
         displayRanking();
         drawStartScreen();
         
-        // Use a timeout to ensure header is loaded and sized
         setTimeout(() => {
             resizeCanvas();
-            // Re-center player after resize
             player.x = canvas.width / 2 - player.width / 2;
             player.y = canvas.height - player.height - 10;
-            drawStartScreen(); // Redraw start screen with correct dimensions
+            drawStartScreen();
         }, 500); 
     }
 
