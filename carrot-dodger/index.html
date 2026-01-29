@@ -6,13 +6,40 @@
     <title>당근 피하기</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="header">
-        <a href="/" class="back-link">← Back to Main</a>
+<body class="game-body">
+    <div id="header-placeholder"></div>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">당근 피하기</h1>
+            <div class="score-container">
+                <span data-lang-ko="시간" data-lang-en="Time">시간</span>: <span id="time">0</span>s | 
+                <span data-lang-ko="점수" data-lang-en="Score">점수</span>: <span id="score">0</span>
+            </div>
+        </div>
+        
+        <div class="game-info-container">
+            <div class="game-description">
+                <h2 data-lang-ko="게임 설명" data-lang-en="Game Rules">게임 설명</h2>
+                <p data-lang-ko="하늘에서 떨어지는 음식을 피하거나 획득하여 점수를 얻는 게임입니다." data-lang-en="It's a game where you score points by avoiding or acquiring food falling from the sky.">하늘에서 떨어지는 음식을 피하거나 획득하여 점수를 얻는 게임입니다.</p>
+                <ul>
+                    <li><img src="images/banana.png" alt="Banana"> <span data-lang-ko="바나나: +1점" data-lang-en="Banana: +1pt">바나나: +1점</span></li>
+                    <li><img src="images/bread.png" alt="Bread"> <span data-lang-ko="빵: +2점" data-lang-en="Bread: +2pts">빵: +2점</span></li>
+                    <li><img src="images/meat.png" alt="Meat"> <span data-lang-ko="고기: +5점" data-lang-en="Meat: +5pts">고기: +5점</span></li>
+                    <li><img src="images/cake.png" alt="Cake"> <span data-lang-ko="케이크: +10점" data-lang-en="Cake: +10pts">케이크: +10점</span></li>
+                    <li><img src="images/carrot.png" alt="Carrot"> <span data-lang-ko="당근: 게임 종료" data-lang-en="Carrot: Game Over">당근: 게임 종료</span></li>
+                </ul>
+            </div>
+            <div class="ranking-container">
+                <h2 data-lang-ko="최고 기록" data-lang-en="High Scores">최고 기록</h2>
+                <ol id="ranking-list">
+                    <!-- Rankings will be populated by JavaScript -->
+                </ol>
+            </div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
     </div>
-    <h1>당근 피하기</h1>
-    <h2>Dodge the falling red squares for as long as you can!</h2>
-    <canvas id="gameCanvas"></canvas>
+    <script src="../scripts/main.js" defer></script>
+    <script src="../language.js" defer></script>
     <script src="main.js"></script>
 </body>
 </html>

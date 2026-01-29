@@ -1,47 +1,58 @@
-html {
-    background-color: #fff;
+/* General Body Styles */
+body.game-body {
+    background-color: #f0f8ff; /* Light Alice Blue for a softer background */
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333;
 }
 
-body {
-    margin: 0 auto;
-    background-color: #fff;
-    font-family: sans-serif;
+.game-container {
     max-width: 1200px;
-    min-height: 100vh;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
 }
 
-.header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.back-link {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-h1, h2 {
+.game-header {
     text-align: center;
-    padding: 0 1rem; /* Add some padding */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.game-header h1 {
+    margin-bottom: 0.5rem;
+    color: #0056b3;
+}
+
+.score-container {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #555;
 }
 
 .game-info-container {
     display: flex;
-    justify-content: space-around;
-    padding: 1rem;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 0;
 }
 
 .game-description, .ranking-container {
-    width: 45%;
+    flex: 1;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.game-description h2, .ranking-container h2 {
+    margin-top: 0;
+    color: #0056b3;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
 }
 
 .game-description ul {
@@ -52,49 +63,43 @@ h1, h2 {
 .game-description li {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1em;
 }
 
 .game-description img {
-    width: 30px;
+    width: 28px;
+    height: 28px;
     margin-right: 10px;
 }
 
-.ranking-container h2 {
-    margin-top: 0;
-}
-
 .ranking-container ol {
-    padding-left: 20px;
+    padding-left: 25px;
 }
 
 #ranking-list li {
     margin-bottom: 0.5rem;
-    font-size: 1.1em;
+    font-size: 1em;
+    color: #333;
+}
+
+#ranking-list li strong {
+    color: #000;
 }
 
 
 canvas {
     display: block;
-    margin: 0 auto; /* Center the canvas */
-    max-width: 100%; /* Make it responsive */
-}
-
-@media (max-width: 1200px) {
-    body {
-        max-width: 100%;
-        box-shadow: none;
-    }
+    margin: 0 auto;
+    max-width: 100%;
+    background-color: #87CEEB; /* Sky blue background */
+    border-radius: 8px;
+    border: 2px solid #0056b3; /* Themed border */
 }
 
 @media (max-width: 768px) {
     .game-info-container {
         flex-direction: column;
-        align-items: center;
-    }
-
-    .game-description, .ranking-container {
-        width: 90%;
-        margin-bottom: 1rem;
+        align-items: stretch;
     }
 }
