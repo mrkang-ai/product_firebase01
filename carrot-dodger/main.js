@@ -10,10 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let animationFrameId;
 
     function resizeCanvas() {
-        const gameContainer = document.querySelector('.game-container');
-        canvas.width = gameContainer.offsetWidth;
-        const availableHeight = window.innerHeight - document.getElementById('header-placeholder').offsetHeight;
-        canvas.height = Math.min(600, availableHeight - 250); 
+        // Set a large, fixed size for the canvas
+        canvas.width = 1000; // Example large width
+        canvas.height = 800; // Example large height
+
+        // Ensure player position is updated if canvas size changes during game
+        player.x = canvas.width / 2 - player.width / 2;
+        player.y = canvas.height - player.height - 10;
     }
 
     const images = {
